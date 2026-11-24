@@ -1,0 +1,119 @@
+{
+  "checked_on": "2026-11-24",
+  "purpose": "elegibilidade da fonte para planejamento; sem treino ou geração de partições",
+  "download_url": "https://archive.ics.uci.edu/static/public/471/electrical+grid+stability+simulated+data.zip",
+  "metadata_url": "https://archive.ics.uci.edu/api/dataset?id=471",
+  "dataset_page": "https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data",
+  "doi": "10.24432/C5PG66",
+  "author": "Vadim Arzamasov",
+  "year": 2018,
+  "license": "CC BY 4.0",
+  "license_source": "https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data",
+  "license_verification": "link CC BY 4.0 conferido na página oficial; a resposta da API não contém a licença",
+  "file": "Data_for_UCI_named.csv",
+  "sha256_original_csv": "7afc3154fed9cd65258b3403b60381fe6b0d832bf817a1ea4866395d05a84a83",
+  "rows": 10000,
+  "numeric_predictors": 12,
+  "features_in_order": [
+    "tau1",
+    "tau2",
+    "tau3",
+    "tau4",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+  ],
+  "original_columns": [
+    "tau1",
+    "tau2",
+    "tau3",
+    "tau4",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "g1",
+    "g2",
+    "g3",
+    "g4",
+    "stab",
+    "stabf"
+  ],
+  "excluded_predictors": [
+    "stab",
+    "stabf"
+  ],
+  "class_counts": {
+    "stable": 3620,
+    "unstable": 6380
+  },
+  "class_mapping": {
+    "stable": 0,
+    "unstable": 1
+  },
+  "missing_values": 0,
+  "nonfinite_numeric_values": 0,
+  "duplicate_feature_rows": 0,
+  "label_sign_inconsistencies": 0,
+  "max_abs_power_balance": 5.551115123125783e-15,
+  "observed_ranges": {
+    "tau1": {
+      "min": 0.500793021360319,
+      "max": 9.99946946943287
+    },
+    "tau2": {
+      "min": 0.500141360493773,
+      "max": 9.99983655621537
+    },
+    "tau3": {
+      "min": 0.500788152733829,
+      "max": 9.99945000849598
+    },
+    "tau4": {
+      "min": 0.500472961226082,
+      "max": 9.99944329731088
+    },
+    "p1": {
+      "min": 1.58258966481528,
+      "max": 5.8644179596283
+    },
+    "p2": {
+      "min": -1.99989095591106,
+      "max": -0.500108275885764
+    },
+    "p3": {
+      "min": -1.99994466917731,
+      "max": -0.50007225154374
+    },
+    "p4": {
+      "min": -1.99992633173043,
+      "max": -0.500024528740323
+    },
+    "g1": {
+      "min": 0.0500093036111293,
+      "max": 0.999937073063054
+    },
+    "g2": {
+      "min": 0.0500531010350864,
+      "max": 0.999944294487435
+    },
+    "g3": {
+      "min": 0.0500536923673214,
+      "max": 0.999981832400081
+    },
+    "g4": {
+      "min": 0.0500284939589759,
+      "max": 0.999930047985306
+    }
+  },
+  "limitations": [
+    "não verifica datasets de outros grupos nem materiais indisponíveis da disciplina",
+    "dados simulados; não demonstra segurança de uma rede real",
+    "sem geração de treino/holdout/reserva ou medição de desempenho de modelo"
+  ]
+}
