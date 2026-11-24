@@ -1,8 +1,4 @@
-"""API de inferência (FastAPI) servindo o modelo campeão.
-
-Local:   uvicorn mlops_demo.api:app --reload
-Docker:  docker run -p 8000:8000 mlops-demo
-"""
+"""API de inferência para classificação da estabilidade da rede elétrica."""
 
 import json
 import os
@@ -11,26 +7,47 @@ from pathlib import Path
 import joblib
 import pandas as pd
 from fastapi import FastAPI
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from mlops_demo import __version__, config
 
 CAMINHO_MODELO = Path(os.environ.get("MODEL_PATH", config.MODELO_CAMPEAO))
 CAMINHO_METRICAS = CAMINHO_MODELO.with_name("metrics.json")
 
-app = FastAPI(title="Triagem de tumores (demo CI/CD/CT)", version=__version__)
+app = FastAPI(title="Estabilidade de rede elétrica (CI/CD/CT)", version=__version__)
 _modelo = joblib.load(CAMINHO_MODELO)
 
 
-class Exame(BaseModel):
-    """Os 30 atributos do exame, na mesma ordem do treino."""
+class EntradaRede(BaseModel):
+    """Os 12 atributos da rede, na mesma ordem do treino."""
 
-    atributos: list[float] = Field(min_length=30, max_length=30)
+    atributos: list[float] = Field(
+        min_length=len(config.FEATURES),
+        max_length=len(config.FEATURES),
+    )
+
+    @field_validator("atributos")
+    @classmethod
+    def validar_atributos(cls, valores: list[float]) -> list[float]:
+        entrada = dict(zip(config.FEATURES, valores, strict=True))
+
+        for nome, valor in entrada.items():
+            minimo, maximo = config.FAIXAS_FEATURES[nome]
+
+            if not minimo <= valor <= maximo:
+                raise ValueError(f"{nome} fora da faixa física permitida")
+
+        balanco = sum(entrada[nome] for nome in config.COLUNAS_POTENCIA)
+
+        if abs(balanco) > config.TOLERANCIA_BALANCO_POTENCIA:
+            raise ValueError("Balanço de potência inválido")
+
+        return valores
 
 
 class Predicao(BaseModel):
     classe: str
-    probabilidade_maligno: float
+    probabilidade_instavel: float
     versao_codigo: str
 
 
@@ -43,14 +60,15 @@ def saude() -> dict:
 
 
 @app.post("/predict", response_model=Predicao)
-def prever(exame: Exame) -> Predicao:
-    entrada = pd.DataFrame([exame.atributos], columns=config.FEATURES)
+def prever(rede: EntradaRede) -> Predicao:
+    entrada = pd.DataFrame([rede.atributos], columns=config.FEATURES)
     previsto = int(_modelo.predict(entrada)[0])
-    # a coluna da classe maligna (0) em predict_proba segue a ordem de classes_
-    coluna = list(_modelo.classes_).index(config.CLASSE_MALIGNA)
-    p_maligno = float(_modelo.predict_proba(entrada)[0][coluna])
+
+    coluna = list(_modelo.classes_).index(config.CLASSE_INSTAVEL)
+    p_instavel = float(_modelo.predict_proba(entrada)[0][coluna])
+
     return Predicao(
-        classe="maligno" if previsto == config.CLASSE_MALIGNA else "benigno",
-        probabilidade_maligno=round(p_maligno, 4),
+        classe="instavel" if previsto == config.CLASSE_INSTAVEL else "estavel",
+        probabilidade_instavel=round(p_instavel, 4),
         versao_codigo=__version__,
     )
