@@ -220,7 +220,8 @@ def validar_dataframe(df: pd.DataFrame) -> list[str]:
         problemas.append(f"{nulos} valores nulos")
 
     numericos = df[esperadas].apply(pd.to_numeric, errors="coerce")
-    if numericos.isna().sum().sum() > nulos:
+    conversoes_invalidas = numericos.isna() & df[esperadas].notna()
+    if conversoes_invalidas.to_numpy().any():
         problemas.append("valores não numéricos")
     if not np.isfinite(numericos.to_numpy(dtype=float)).all():
         problemas.append("valores infinitos ou não finitos")
