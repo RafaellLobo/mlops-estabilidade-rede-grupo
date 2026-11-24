@@ -24,6 +24,10 @@ def base_holdout(particoes):
     return particoes[1]
 
 
+def test_hash_sha256_da_fonte_original():
+    assert verificar_hash_fonte() == config.SHA256_FONTE_UCI
+
+
 def test_fonte_gera_particoes_com_tamanhos_do_protocolo(particoes):
     treino, holdout, reserva = particoes
     assert (len(treino), len(holdout), len(reserva)) == (6000, 2000, 2000)
