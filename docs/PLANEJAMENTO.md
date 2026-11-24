@@ -74,9 +74,7 @@ Ordem das entradas: `tau1,tau2,tau3,tau4,p1,p2,p3,p4,g1,g2,g3,g4`. Alvo derivado
 A ordem das chamadas deve ser explícita para reproduzir as mesmas identidades (não basta registrar a semente):
 
 ```python
-resto, treino = train_test_split(
-    df, test_size=6000, stratify=df["instavel"], random_state=7
-)
+resto, treino = train_test_split(df, test_size=6000, stratify=df["instavel"], random_state=7)
 reserva, holdout = train_test_split(
     resto, test_size=2000, stratify=resto["instavel"], random_state=7
 )
