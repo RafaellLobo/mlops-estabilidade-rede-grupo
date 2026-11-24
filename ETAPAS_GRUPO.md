@@ -61,6 +61,8 @@ Não é necessário concluir toda a etapa 4 para começar a etapa 3. Entretanto,
 
 **Objetivo:** garantir que todos trabalhem no repositório correto e no mesmo protocolo.
 
+**Entregáveis de Rafael registrados em 24/11/2026:** [docs/PLANEJAMENTO.md](docs/PLANEJAMENTO.md) e [inspeção da fonte UCI](docs/verificacao_fonte_uci.json). Protocolo definido por Rafael para revisão do grupo; aceite coletivo, convites pendentes e integração do trabalho futuro continuam explicitados no planejamento.
+
 ### O que fazer
 
 - Conferir o CI original verde e registrar sua URL antes de adaptar código.

@@ -1,3 +1,6 @@
+> **Repositório do grupo — etapa de planejamento.** Comece por [ETAPAS_GRUPO.md](ETAPAS_GRUPO.md) e pelo [planejamento técnico de Rafael](docs/PLANEJAMENTO.md).
+> O código e o texto de referência abaixo ainda descrevem o projeto original. A adaptação elétrica e as evidências coletivas estão pendentes.
+
 # Projeto de demonstração: CI/CD/CT para ML
 
 Projeto pequeno, mas completo, que mostra como um modelo de machine learning é testado, retreinado e entregue de forma
