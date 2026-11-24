@@ -4,44 +4,56 @@ import pandas as pd
 import pytest
 
 from mlops_demo import config
-from mlops_demo.data import (
-    dividir_dataset,
-    listar_lotes,
-    validar_dataframe,
-)
+from mlops_demo.data import dividir_dataset, validar_dataframe
 
 pytestmark = pytest.mark.dados
 
 
-def _arquivos_de_dados():
-    return [config.BASE_TREINO, config.BASE_HOLDOUT, *listar_lotes()]
+@pytest.fixture
+def particoes():
+    return dividir_dataset()
 
 
-@pytest.mark.parametrize("caminho", _arquivos_de_dados(), ids=lambda c: c.name)
-def test_arquivo_respeita_esquema_e_regras_fisicas(caminho):
-    problemas = validar_dataframe(pd.read_csv(caminho))
-    assert problemas == [], f"{caminho.name}: {problemas}"
+@pytest.fixture
+def base_treino(particoes):
+    return particoes[0]
 
 
-def test_particoes_tem_tamanhos_do_protocolo():
-    treino, holdout, reserva = dividir_dataset()
+@pytest.fixture
+def base_holdout(particoes):
+    return particoes[1]
+
+
+def test_fonte_gera_particoes_com_tamanhos_do_protocolo(particoes):
+    treino, holdout, reserva = particoes
     assert (len(treino), len(holdout), len(reserva)) == (6000, 2000, 2000)
 
 
-def test_particoes_nao_tem_registros_sobrepostos():
-    treino, holdout, reserva = dividir_dataset()
+def test_particoes_nao_tem_registros_sobrepostos(particoes):
     chaves = [
         set(map(tuple, parte[config.FEATURES].to_numpy()))
-        for parte in (treino, holdout, reserva)
+        for parte in particoes
     ]
     assert chaves[0].isdisjoint(chaves[1])
     assert chaves[0].isdisjoint(chaves[2])
     assert chaves[1].isdisjoint(chaves[2])
 
 
-def test_treino_e_holdout_contem_as_duas_classes(base_treino, base_holdout):
-    assert set(base_treino[config.ALVO].unique()) == {0, 1}
-    assert set(base_holdout[config.ALVO].unique()) == {0, 1}
+def test_particoes_contem_as_duas_classes(particoes):
+    for parte in particoes:
+        assert set(parte[config.ALVO].unique()) == {
+            config.CLASSE_ESTAVEL, config.CLASSE_INSTAVEL
+        }
+
+
+def test_fonte_nao_expoe_colunas_de_vazamento(base_treino):
+    assert list(base_treino.columns) == [*config.FEATURES, config.ALVO]
+    assert "stab" not in base_treino.columns
+    assert "stabf" not in base_treino.columns
+
+
+def test_validador_aceita_dados_fisicamente_validos(base_treino):
+    assert validar_dataframe(base_treino) == []
 
 
 def test_validador_detecta_nulos_e_valores_nao_finitos(base_treino):
@@ -51,6 +63,13 @@ def test_validador_detecta_nulos_e_valores_nao_finitos(base_treino):
     problemas = validar_dataframe(corrompido)
     assert any("nulos" in p for p in problemas)
     assert any("não finitos" in p for p in problemas)
+
+
+def test_validador_detecta_valor_nao_numerico(base_treino):
+    corrompido = base_treino.copy()
+    corrompido["tau1"] = corrompido["tau1"].astype(object)
+    corrompido.loc[0, "tau1"] = "invalido"
+    assert any("não numéricos" in p for p in validar_dataframe(corrompido))
 
 
 def test_validador_detecta_esquema_diferente(base_treino):
