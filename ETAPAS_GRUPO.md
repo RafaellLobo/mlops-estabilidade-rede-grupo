@@ -23,9 +23,9 @@ A salvaguarda individual de Rafael permanece em **outro repositório e outra pas
 | Integrante | GitHub | Situação inicial |
 |---|---|---|
 | Rafael | `RafaellLobo` | Proprietário do repositório |
-| Leonardo | A confirmar | Convite pendente; Rafael enviará posteriormente |
+| Leonardo | `le0zinn1316` | Conta confirmada; convite de escrita enviado em 24/11/2026, aguardando aceite |
 | Samara | `Samysruiz` | Convite de escrita enviado; verificar aceite |
-| Juan | `juanguatierri-wq` | Convite de escrita enviado; verificar aceite |
+| Juan | `juanguatierri-wq` | Acesso de escrita confirmado em 24/11/2026 |
 | Victor | `VictorHugo-syss` | Convite de escrita enviado; verificar aceite |
 | Felipe | `fclivati` | Convite de escrita enviado; verificar aceite |
 
@@ -66,7 +66,7 @@ Não é necessário concluir toda a etapa 4 para começar a etapa 3. Entretanto,
 ### O que fazer
 
 - Conferir o CI original verde e registrar sua URL antes de adaptar código.
-- Confirmar os acessos; enviar posteriormente o convite de Leonardo.
+- Confirmar os acessos; o convite de escrita de Leonardo (`le0zinn1316`) foi enviado em 24/11/2026 e depende do aceite dele.
 - Discutir e registrar o problema, usuário do modelo, classe positiva, erro mais caro, métrica e limiares. Não tratar a proposta abaixo como decisão já aceita por todos.
 - Registrar fonte/licença, divisões, sementes e critérios de comparação antes de avaliar no holdout.
 - Coordenar a branch conjunta das etapas 2–4, preservando as contribuições de cada autor.
