@@ -4,7 +4,7 @@ import pandas as pd
 import pytest
 
 from mlops_demo import config
-from mlops_demo.data import dividir_dataset, validar_dataframe
+from mlops_demo.data import dividir_dataset, validar_dataframe, verificar_hash_fonte
 
 pytestmark = pytest.mark.dados
 
