@@ -16,7 +16,7 @@ Esta entrega cobre preparação, verificação de elegibilidade, decisões docum
 | Actions | Escrita de conteúdo e permissão de abrir PRs confirmadas |
 | Promoção automática | `PROMOCAO_AUTOMATICA=false`; bônus somente depois das evidências obrigatórias |
 | Papéis | [ETAPAS_GRUPO.md](../ETAPAS_GRUPO.md): seis responsáveis e revisores propostos |
-| Convites | Samara, Juan, Victor e Felipe: convites de escrita enviados, aguardando aceite na consulta de 24/11; Leonardo: convite adiado por orientação de Rafael |
+| Convites | Juan: acesso de escrita confirmado; Samara, Victor e Felipe: convites pendentes; Leonardo (`le0zinn1316`): conta confirmada e convite de escrita enviado em 24/11/2026, aguardando aceite |
 | Salvaguarda individual | Separada; suas execuções, métricas e pacote não serão apresentados como evidências coletivas |
 
 O CI acima prova o funcionamento **do projeto original**, não E1 da adaptação coletiva. Os itens dependentes de trabalho futuro permanecem abertos no final deste documento.
@@ -136,11 +136,11 @@ Com o conjunto integrado, executar `python demo/local.py ci` e `python demo/loca
 - [x] Repositório e baseline original com três jobs aprovados.
 - [x] Papéis, dependências e critérios distribuídos em seis etapas.
 - [x] Inspeção oficial da fonte e protocolo técnico registrados.
-- [x] Convites de escrita enviados para as quatro contas confirmadas; convite de Leonardo explicitamente adiado.
+- [x] Convites de escrita enviados aos cinco colegas, incluindo Leonardo (`le0zinn1316`), confirmado em 24/11/2026.
 - [x] Roteiro de integração preparado; branch conjunta disponibilizada ao concluir este PR.
 - [ ] Felipe revisar esta etapa; registrar eventuais discordâncias e o aceite coletivo sem presumir consenso.
 - [ ] Equipe confirmar elegibilidade perante os demais labs/grupos.
-- [ ] Convidados aceitarem acesso; Rafael enviar o convite de Leonardo quando o perfil for confirmado.
+- [ ] Leonardo, Samara, Victor e Felipe aceitarem os convites; Juan já possui acesso de escrita na consulta de 24/11/2026.
 - [ ] Receber, revisar e integrar o código efetivamente produzido nas etapas 2–4.
 - [ ] Rafael revisar o relatório de Felipe e acompanhar a confirmação de envio ao D2L.
 
