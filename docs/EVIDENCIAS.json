@@ -1,0 +1,161 @@
+{
+  "aviso": "Indice de evidencias OFICIAIS do Actions. Todos os campos nulos estao pendentes. Nao preencher sem execucao real.",
+  "repositorio": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo",
+  "base_conferida": {
+    "data": "2026-11-25",
+    "main_sha": "330fcf8",
+    "tags_no_remoto": [],
+    "prs_na_main": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "evidencias": [
+    {
+      "id": "E1",
+      "titulo": "CI aprovado na main com a adaptacao eletrica",
+      "status": "pendente",
+      "workflow": "CI",
+      "evento": "push em main",
+      "esperado": [
+        "Lint e formatacao (ruff)",
+        "Testes (Python 3.11)",
+        "Testes (Python 3.12)"
+      ],
+      "url_run": null,
+      "branch": null,
+      "sha": null,
+      "conclusao": null,
+      "pr_ou_tag": null,
+      "executor": null,
+      "observacoes": null
+    },
+    {
+      "id": "E2",
+      "titulo": "PR com falha proposital identificavel no CI (cenario 1)",
+      "status": "pendente",
+      "workflow": "CI",
+      "evento": "pull_request",
+      "esperado": [
+        "Lint verde",
+        "Testes de codigo vermelho (3 testes)"
+      ],
+      "url_run": null,
+      "branch": null,
+      "sha": null,
+      "conclusao": null,
+      "pr_ou_tag": null,
+      "executor": null,
+      "observacoes": null
+    },
+    {
+      "id": "E3",
+      "titulo": "Drift detectado, retreino executado e portao aprovado (cenario 4)",
+      "status": "pendente",
+      "workflow": "CT",
+      "evento": "pull_request",
+      "esperado": [
+        "Detectar drift: gatilho disparado (4 de 12 esperados)",
+        "Reproduzir o pipeline com DVC",
+        "Portao de qualidade: aprovado",
+        "Nao pode estar skipped"
+      ],
+      "url_run": null,
+      "branch": null,
+      "sha": null,
+      "conclusao": null,
+      "pr_ou_tag": null,
+      "executor": null,
+      "observacoes": null
+    },
+    {
+      "id": "E4",
+      "titulo": "Candidato reprovado no portao; campeao inalterado (cenarios 4 e 5)",
+      "status": "pendente",
+      "workflow": "CT",
+      "evento": "pull_request",
+      "esperado": [
+        "Portao de qualidade vermelho (precisao ~0,657)",
+        "hash do campeao antes e depois iguais (dde5ee49...)"
+      ],
+      "url_run": null,
+      "branch": null,
+      "sha": null,
+      "conclusao": null,
+      "pr_ou_tag": null,
+      "executor": null,
+      "observacoes": null
+    },
+    {
+      "id": "E5",
+      "titulo": "CD completo, imagem publica no GHCR, pull e smoke sem autenticacao",
+      "status": "pendente",
+      "workflow": "CD",
+      "evento": "push de tag v*.*.*",
+      "esperado": [
+        "CI reutilizado (3 jobs)",
+        "build",
+        "smoke no container",
+        "publicacao no ghcr.io",
+        "pull sem login e smoke da imagem publicada"
+      ],
+      "url_run": null,
+      "branch": null,
+      "sha": null,
+      "conclusao": null,
+      "pr_ou_tag": null,
+      "executor": null,
+      "observacoes": null
+    },
+    {
+      "id": "BONUS",
+      "titulo": "Promocao automatica pelo CT, tag criada e CD disparado pelo fluxo",
+      "status": "pendente",
+      "workflow": "CT e CD",
+      "evento": "push em main (CT) e workflow_dispatch (CD)",
+      "esperado": [
+        "PROMOCAO_AUTOMATICA=true registrada",
+        "commit do robo alterando models/champion",
+        "tag seguinte apontando para esse commit",
+        "CD disparado pelo CT (actor github-actions[bot])",
+        "estado final da variavel registrado"
+      ],
+      "url_run": null,
+      "branch": null,
+      "sha": null,
+      "conclusao": null,
+      "pr_ou_tag": null,
+      "executor": null,
+      "observacoes": null
+    }
+  ],
+  "validacao_local_nao_e_evidencia_oficial": {
+    "data": "2026-11-25",
+    "ambiente": "Linux, Python 3.12.3, scikit-learn 1.7.2",
+    "ci_local": "7 de 7 passos, 43 testes",
+    "cenario_1": "Testes de codigo falha (3 testes); lint passa",
+    "cenario_4_ct": {
+      "drift_atributos": "4 de 12",
+      "recall": 0.9667820069204153,
+      "precisao": 0.9451962110960758,
+      "portao": "aprovado"
+    },
+    "cenarios_4_5_ct": {
+      "recall": 1.0,
+      "precisao": 0.6568181818181819,
+      "portao": "reprovado",
+      "campeao_sha256_prefixo_antes_depois": "dde5ee499363c5fb / dde5ee499363c5fb"
+    }
+  },
+  "pacote_ghcr": {
+    "url": null,
+    "visibilidade": null,
+    "imagem": null,
+    "digest": null,
+    "teste_pull_sem_login": null
+  }
+}

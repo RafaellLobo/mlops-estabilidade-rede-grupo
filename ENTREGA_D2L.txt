@@ -1,0 +1,26 @@
+RASCUNHO INCOMPLETO. NAO ENVIAR ANTES DE PREENCHER TUDO COM URLS REAIS.
+Este arquivo nao envia a atividade ao D2L. Quem envia e uma unica pessoa definida pelo grupo.
+
+Repositorio do grupo (publico):
+https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo
+
+Relatorio: ADAPTACAO.md na raiz do repositorio (maximo de duas paginas).
+
+Evidencias (execucoes no repositorio do grupo):
+E1 (CI na main adaptada):            FALTA
+E2 (CI vermelho controlado em PR):   FALTA
+E3 (drift e portao aprovado, CT):    FALTA
+E4 (portao reprovado, CT):           FALTA
+E5 (tag, CD verde, imagem publica):  FALTA
+
+Pacote publico no GHCR (pagina e print):  FALTA
+
+Bonus (opcional): FALTA / nao realizado
+
+Pendencias que impedem o envio:
+- as cinco evidencias acima ainda nao foram executadas no Actions;
+- o pacote ainda nao foi publicado nem tornado publico;
+- contribuicao de Victor sem registro;
+- revisao de Rafael ao PR documental.
+
+Enviado por: (a definir pelo grupo)
