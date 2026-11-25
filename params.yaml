@@ -1,7 +1,34 @@
 # Hiperparâmetros do modelo. Mudou aqui? O CI treina de novo e confere os limiares.
+# Etapa 3 (Samara): o bloco "modelo" é o vencedor fixado pela seleção interna registrada em
+# reports/selecao_modelo.json; o holdout não participou da escolha.
 semente: 42
 
 modelo:
-  C: 1.0
-  max_iter: 1000
-  class_weight: balanced
+  tipo: hist_gradient_boosting
+  max_iter: 300
+  learning_rate: 0.1
+  max_leaf_nodes: 31
+  class_weight: null
+
+# Seleção interna (protocolo da Etapa 1): split estratificado 80/20 SOMENTE da base de treino,
+# random_state = 42. Candidatos e ordem de desempate foram declarados ANTES da execução.
+# Critério: maior recall da classe instavel=1 entre os candidatos com precisão >= 0,90;
+# desempate pela precisão e, depois, pela ordem abaixo.
+selecao:
+  proporcao_validacao: 0.2
+  semente: 42
+  candidatos:
+    - tipo: regressao_logistica
+      C: 1.0
+      max_iter: 1000
+      class_weight: balanced
+    - tipo: random_forest
+      n_estimators: 300
+      max_depth: null
+      min_samples_leaf: 1
+      class_weight: balanced
+    - tipo: hist_gradient_boosting
+      max_iter: 300
+      learning_rate: 0.1
+      max_leaf_nodes: 31
+      class_weight: null

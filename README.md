@@ -1,7 +1,7 @@
 > **Para executar sua etapa com IA:** leia [PROMPT_EXECUCAO_ETAPAS.md](PROMPT_EXECUCAO_ETAPAS.md). Ele orienta escopo, identidade, dependências, PRs e evidências do Actions.
 
-> **Repositório do grupo — etapa de planejamento.** Comece por [ETAPAS_GRUPO.md](ETAPAS_GRUPO.md) e pelo [planejamento técnico de Rafael](docs/PLANEJAMENTO.md).
-> O código e o texto de referência abaixo ainda descrevem o projeto original. A adaptação elétrica e as evidências coletivas estão pendentes.
+> **Repositório do grupo — implementação elétrica integrada.** Comece por [ETAPAS_GRUPO.md](ETAPAS_GRUPO.md), pelo [planejamento técnico](docs/PLANEJAMENTO.md) e pelo [registro de integração das etapas 2 a 4](docs/INTEGRACAO_ETAPAS_2_4.md).
+> O código e os dados foram adaptados para estabilidade da rede elétrica. O texto de referência abaixo ainda é herdado do projeto original e deve ser atualizado na etapa 6. A entrega depende do fechamento das evidências oficiais e da documentação.
 
 # Projeto de demonstração: CI/CD/CT para ML
 

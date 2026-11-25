@@ -7,6 +7,8 @@
 **Repositório coletivo:** https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo  
 **Pasta local de preparação:** `C:\mlops-estabilidade-rede-grupo`.
 
+**Atualização da integração (25/11/2026):** a implementação das etapas 2 a 4 foi reunida com preservação das autorias e verificações registradas em [docs/INTEGRACAO_ETAPAS_2_4.md](docs/INTEGRACAO_ETAPAS_2_4.md). A seção seguinte descreve a situação inicial histórica; confira o registro e os checks atuais antes de continuar. Isso não declara as seis etapas finalizadas.
+
 ## 1. Situação inicial e separação da salvaguarda
 
 Este repositório contém o **projeto original da disciplina e este planejamento**. Ainda não é a entrega adaptada do grupo. A equipe precisa implementar, validar e produzir suas próprias evidências.

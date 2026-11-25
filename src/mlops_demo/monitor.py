@@ -47,13 +47,14 @@ def executar() -> bool:
         novo = pd.concat([pd.read_csv(c) for c in lotes], ignore_index=True)
         tabela = detectar_drift(base, novo)
         n_drift = int(tabela["drift"].sum())
-        marcados = tabela[tabela["drift"]].head(10)
+        marcados = tabela
         texto = (
             f"## Drift: {n_drift} de {len(config.FEATURES)} atributos\n\n"
             f"Lotes comparados: {', '.join(c.name for c in lotes)} ({len(novo)} linhas)\n\n"
-            "| Atributo | KS | p-valor |\n|---|---|---|\n"
+            "| Atributo | KS | p-valor | Drift |\n|---|---|---|---|\n"
             + "\n".join(
-                f"| {r.atributo} | {r.ks} | {r.p_valor:.1e} |" for r in marcados.itertuples()
+                f"| {r.atributo} | {r.ks} | {r.p_valor:.1e} | {'Sim' if r.drift else 'Não'} |"
+                for r in marcados.itertuples()
             )
             + "\n"
         )

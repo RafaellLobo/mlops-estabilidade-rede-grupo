@@ -1,118 +1,285 @@
-"""Dados: criação da base, validação de esquema, geração de lotes e preparação.
+"""Ingestão, divisão e validação dos dados de estabilidade de rede.
 
-Uso na linha de comando:
-    python -m mlops_demo.data base      # cria base_treino.csv e base_holdout.csv (uma vez)
-    python -m mlops_demo.data preparar  # junta base + lotes e gera data/processed/
+Comandos:
+    python -m mlops_demo.data base      # baixa/verifica a fonte e gera treino/holdout
+    python -m mlops_demo.data preparar  # combina base + lotes em data/processed/
     python -m mlops_demo.data validar   # valida todos os CSVs de data/raw/
 """
 
+import hashlib
 import sys
+import urllib.request
+import zipfile
+from pathlib import Path
 
+import numpy as np
 import pandas as pd
-from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 
 from mlops_demo import config
 
-SEMENTE_DADOS = 7  # divisão fixa da base: não mude, ou o campeão perde a referência
-N_TREINO_BASE = 300
-N_HOLDOUT_BASE = 100
+SEMENTE_DADOS = 7
+N_TREINO_BASE = 6000
+N_HOLDOUT_BASE = 2000
+N_RESERVA_BASE = 2000
+COLUNA_ROTULO_ORIGINAL = "stabf"
+COLUNA_SCORE_ORIGINAL = "stab"
+
+
+def baixar_fonte_uci(destino: Path = config.FONTE_UCI) -> Path:
+    """Baixa o CSV oficial da UCI, preservando os bytes para conferência do SHA-256."""
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    zip_destino = destino.parent / "electrical-grid-stability-uci.zip"
+    requisicao = urllib.request.Request(
+        config.URL_FONTE_UCI,
+        headers={"User-Agent": "mlops-estabilidade-rede-grupo/1.0"},
+    )
+    with urllib.request.urlopen(requisicao, timeout=60) as resposta:
+        zip_destino.write_bytes(resposta.read())
+
+    with zipfile.ZipFile(zip_destino) as arquivo_zip:
+        candidatos = [nome for nome in arquivo_zip.namelist() if Path(nome).name == destino.name]
+        if len(candidatos) != 1:
+            raise ValueError(
+                "O pacote UCI deve conter exatamente um arquivo "
+                f"{destino.name}; encontrados: {candidatos}"
+            )
+        destino.write_bytes(arquivo_zip.read(candidatos[0]))
+    zip_destino.unlink(missing_ok=True)
+    return destino
+
+
+def verificar_hash_fonte(caminho: Path = config.FONTE_UCI) -> str:
+    """Confere o SHA-256 do CSV original, antes de qualquer transformação."""
+    if not caminho.is_file():
+        raise FileNotFoundError(f"Fonte UCI não encontrada: {caminho}")
+    digest = hashlib.sha256(caminho.read_bytes()).hexdigest()
+    if digest != config.SHA256_FONTE_UCI:
+        raise ValueError(
+            f"SHA-256 da fonte UCI divergente: esperado {config.SHA256_FONTE_UCI}, obtido {digest}"
+        )
+    return digest
 
 
 def carregar_dataset_completo() -> pd.DataFrame:
-    """Breast Cancer Wisconsin completo (569 linhas), com a coluna target."""
-    bruto = load_breast_cancer(as_frame=True)
-    df = bruto.frame.copy()
-    df.columns = [*config.FEATURES, config.ALVO]
-    return df
+    """Lê a fonte oficial e retorna 12 atributos + alvo instavel (0/1)."""
+    if not config.FONTE_UCI.exists():
+        baixar_fonte_uci()
+    verificar_hash_fonte()
+
+    original = pd.read_csv(config.FONTE_UCI)
+    if list(original.columns) != config.COLUNAS_ORIGINAIS:
+        raise ValueError(f"Colunas inesperadas na fonte UCI: {list(original.columns)}")
+
+    rotulos = original[COLUNA_ROTULO_ORIGINAL].map(
+        {"stable": config.CLASSE_ESTAVEL, "unstable": config.CLASSE_INSTAVEL}
+    )
+    if rotulos.isna().any():
+        raise ValueError("A fonte contém rótulos stabf diferentes de stable/unstable.")
+
+    score = pd.to_numeric(original[COLUNA_SCORE_ORIGINAL], errors="coerce")
+    sinal_inconsistente = ((score > 0) & (rotulos != config.CLASSE_INSTAVEL)) | (
+        (score < 0) & (rotulos != config.CLASSE_ESTAVEL)
+    )
+    if sinal_inconsistente.any():
+        raise ValueError(f"{int(sinal_inconsistente.sum())} rótulos discordam do sinal de stab.")
+
+    dados = original[config.FEATURES].apply(pd.to_numeric, errors="coerce")
+    dados[config.ALVO] = rotulos.astype("int64")
+    problemas = validar_dataframe(dados)
+    if problemas:
+        raise ValueError("Fonte UCI inválida: " + "; ".join(problemas))
+    return dados
 
 
 def dividir_dataset() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Divide o dataset em base de treino, holdout fixo e reserva (origem dos lotes novos)."""
+    """Gera treino (6.000), holdout (2.000) e reserva (2.000), estratificados."""
     df = carregar_dataset_completo()
+
+    # A primeira saída é o restante (4.000); a segunda, treino (6.000).
     resto, base_treino = train_test_split(
-        df, test_size=N_TREINO_BASE, stratify=df[config.ALVO], random_state=SEMENTE_DADOS
+        df,
+        test_size=N_TREINO_BASE,
+        stratify=df[config.ALVO],
+        random_state=SEMENTE_DADOS,
     )
+    # Do restante, separar holdout fixo (2.000) e reserva (2.000).
     reserva, base_holdout = train_test_split(
-        resto, test_size=N_HOLDOUT_BASE, stratify=resto[config.ALVO], random_state=SEMENTE_DADOS
+        resto,
+        test_size=N_HOLDOUT_BASE,
+        stratify=resto[config.ALVO],
+        random_state=SEMENTE_DADOS,
     )
-    return (
-        base_treino.reset_index(drop=True),
-        base_holdout.reset_index(drop=True),
-        reserva.reset_index(drop=True),
-    )
+
+    conjuntos = [base_treino, base_holdout, reserva]
+    if [len(parte) for parte in conjuntos] != [N_TREINO_BASE, N_HOLDOUT_BASE, N_RESERVA_BASE]:
+        raise AssertionError("Tamanhos das partições diferem do protocolo definido.")
+
+    chaves = [set(map(tuple, parte[config.FEATURES].to_numpy())) for parte in conjuntos]
+    if not (
+        chaves[0].isdisjoint(chaves[1])
+        and chaves[0].isdisjoint(chaves[2])
+        and chaves[1].isdisjoint(chaves[2])
+    ):
+        raise AssertionError("Há registros repetidos entre treino, holdout e reserva.")
+
+    return tuple(parte.reset_index(drop=True).copy() for parte in conjuntos)
 
 
 def criar_base() -> None:
-    """Grava a base de treino e o holdout fixo em data/raw/."""
-    base_treino, base_holdout, _ = dividir_dataset()
+    """Gera os CSVs de treino e holdout; a reserva fica disponível para lotes."""
+    if not config.FONTE_UCI.exists():
+        baixar_fonte_uci()
+    digest = verificar_hash_fonte()
+    base_treino, base_holdout, reserva = dividir_dataset()
+
     config.DADOS_BRUTOS.mkdir(parents=True, exist_ok=True)
     config.DADOS_LOTES.mkdir(parents=True, exist_ok=True)
     base_treino.to_csv(config.BASE_TREINO, index=False)
     base_holdout.to_csv(config.BASE_HOLDOUT, index=False)
-    print(f"base_treino: {len(base_treino)} linhas | base_holdout: {len(base_holdout)} linhas")
+
+    print(f"SHA-256 UCI: {digest}")
+    print(
+        f"base_treino: {len(base_treino)} | "
+        f"base_holdout: {len(base_holdout)} | reserva: {len(reserva)}"
+    )
+    print("A reserva é mantida em memória e será usada apenas para gerar lotes.")
 
 
 def aplicar_drift(df: pd.DataFrame, fator: float) -> pd.DataFrame:
-    """Simula equipamento recalibrado: raio e perímetro x fator, área x fator ao quadrado."""
-    saida = df.copy()
-    for coluna in config.COLUNAS_TAMANHO:
-        potencia = 2 if "area" in coluna else 1
-        saida[coluna] = saida[coluna] * (fator**potencia)
-    return saida
+    """Seleciona registros com maior elasticidade média, sem alterar os dados."""
+    if not 0 < fator <= 1:
+        raise ValueError("O fator de drift deve estar entre 0 e 1.")
+
+    if fator == 1.0:
+        return df.copy()
+
+    elasticidade = df[["g1", "g2", "g3", "g4"]].mean(axis=1)
+    limite = elasticidade.quantile(1.0 - fator)
+
+    return df.loc[elasticidade >= limite].copy()
 
 
 def gerar_lote(nome: str, n: int = 120, fator_drift: float = 1.0, semente: int = 1) -> str:
-    """Cria data/raw/lotes/<nome>.csv a partir da reserva, opcionalmente com drift."""
-    _, _, reserva = dividir_dataset()
-    lote = reserva.sample(n=min(n, len(reserva)), random_state=semente).reset_index(drop=True)
-    if fator_drift != 1.0:
-        lote = aplicar_drift(lote, fator_drift)
+    """Gera lotes exclusivos da reserva, com ou sem drift."""
+    if n < 4:
+        raise ValueError("O lote deve conter pelo menos quatro registros.")
+
+    if not 0 < fator_drift <= 1:
+        raise ValueError("O fator de drift deve estar entre 0 e 1.")
+
     config.DADOS_LOTES.mkdir(parents=True, exist_ok=True)
     caminho = config.DADOS_LOTES / f"{nome}.csv"
+
+    if caminho.exists():
+        raise FileExistsError(f"O lote {nome} já existe; não será sobrescrito.")
+
+    _, _, reserva = dividir_dataset()
+
+    # Chaves arredondadas para evitar diferenças de leitura dos CSVs.
+    usados = set()
+
+    for caminho_existente in listar_lotes():
+        lote_existente = pd.read_csv(caminho_existente)
+        usados.update(map(tuple, lote_existente[config.FEATURES].round(12).to_numpy()))
+
+    chaves = reserva[config.FEATURES].round(12).apply(tuple, axis=1)
+    disponiveis = reserva.loc[~chaves.isin(usados)].copy()
+
+    if disponiveis.empty:
+        raise ValueError("Não há registros disponíveis na reserva.")
+
+    # Seleciona a região de maior elasticidade antes da amostragem.
+    candidatos = aplicar_drift(disponiveis, fator_drift)
+
+    if len(candidatos) < n:
+        raise ValueError(
+            f"Foram solicitados {n} registros, mas existem "
+            f"apenas {len(candidatos)} candidatos disponíveis."
+        )
+
+    lote = candidatos.sample(n=n, random_state=semente).reset_index(drop=True)
+
+    contagens = lote[config.ALVO].value_counts()
+
+    if len(contagens) != 2 or contagens.min() < 2:
+        raise ValueError("O lote precisa de pelo menos dois registros de cada classe.")
+
+    problemas = validar_dataframe(lote)
+
+    if problemas:
+        raise ValueError("Lote inválido: " + "; ".join(problemas))
+
     lote.to_csv(caminho, index=False)
     return str(caminho)
 
 
 def validar_dataframe(df: pd.DataFrame) -> list[str]:
-    """Devolve a lista de problemas encontrados (lista vazia = dados válidos)."""
+    """Valida ordem, tipos, nulos, finitude, rótulos e regras físicas do domínio."""
     problemas = []
     esperadas = [*config.FEATURES, config.ALVO]
     if list(df.columns) != esperadas:
         faltando = sorted(set(esperadas) - set(df.columns))
         extras = sorted(set(df.columns) - set(esperadas))
-        problemas.append(f"esquema diferente do esperado (faltando={faltando}, extras={extras})")
-        return problemas
+        return [
+            "esquema diferente do esperado "
+            f"(faltando={faltando}, extras={extras}, ordem={list(df.columns)})"
+        ]
+
     nulos = int(df.isna().sum().sum())
     if nulos:
         problemas.append(f"{nulos} valores nulos")
-    if not df[config.ALVO].isin([0, 1]).all():
+
+    numericos = df[esperadas].apply(pd.to_numeric, errors="coerce")
+    conversoes_invalidas = numericos.isna() & df[esperadas].notna()
+    if conversoes_invalidas.to_numpy().any():
+        problemas.append("valores não numéricos")
+    if not np.isfinite(numericos.to_numpy(dtype=float)).all():
+        problemas.append("valores infinitos ou não finitos")
+
+    if not df[config.ALVO].isin([config.CLASSE_ESTAVEL, config.CLASSE_INSTAVEL]).all():
         problemas.append("alvo com valores fora de {0, 1}")
-    negativos = [c for c in config.FEATURES if (df[c] < 0).any()]
-    if negativos:
-        problemas.append(f"valores negativos em {negativos[:3]}")
+
+    for coluna, (minimo, maximo) in config.FAIXAS_FEATURES.items():
+        if coluna not in df:
+            continue
+        valores = pd.to_numeric(df[coluna], errors="coerce")
+        if valores.notna().any() and ((valores < minimo).any() or (valores > maximo).any()):
+            problemas.append(f"{coluna} fora da faixa física [{minimo}, {maximo}]")
+
+    if all(coluna in df for coluna in config.COLUNAS_POTENCIA):
+        potencias = df[config.COLUNAS_POTENCIA].apply(pd.to_numeric, errors="coerce")
+        if potencias.notna().all().all():
+            desequilibrio = (
+                potencias["p1"] - potencias[["p2", "p3", "p4"]].sum(axis=1).abs()
+            ).abs()
+            if (desequilibrio > config.TOLERANCIA_BALANCO_POTENCIA).any():
+                problemas.append("balanço de potência inválido: p1 != abs(p2 + p3 + p4)")
+
     return problemas
 
 
-def listar_lotes() -> list:
-    """Arquivos CSV de lotes novos, em ordem alfabética."""
+def listar_lotes() -> list[Path]:
+    """Retorna os CSVs de lotes novos em ordem alfabética."""
     if not config.DADOS_LOTES.exists():
         return []
     return sorted(config.DADOS_LOTES.glob("*.csv"))
 
 
 def preparar() -> None:
-    """Junta a base com os lotes. Metade de cada lote treina, a outra metade avalia.
-
-    O holdout fixo e as metades de avaliação dos lotes formam a base de avaliação. Assim campeão
-    e candidato são comparados no MESMO conjunto, e o campeão nunca viu esses dados.
-    """
+    """Combina treino e avaliação; metade de cada lote fica fora do treino."""
     treino = [pd.read_csv(config.BASE_TREINO)]
     avaliacao = [pd.read_csv(config.BASE_HOLDOUT)]
     for caminho in listar_lotes():
         lote = pd.read_csv(caminho)
+        problemas = validar_dataframe(lote)
+        if problemas:
+            raise ValueError(f"{caminho.name}: {'; '.join(problemas)}")
         metade_treino, metade_aval = train_test_split(
-            lote, test_size=0.5, stratify=lote[config.ALVO], random_state=SEMENTE_DADOS
+            lote,
+            test_size=0.5,
+            stratify=lote[config.ALVO],
+            random_state=SEMENTE_DADOS,
         )
         treino.append(metade_treino)
         avaliacao.append(metade_aval)
@@ -120,16 +287,21 @@ def preparar() -> None:
     pd.concat(treino, ignore_index=True).to_csv(config.TREINO_PROCESSADO, index=False)
     pd.concat(avaliacao, ignore_index=True).to_csv(config.AVALIACAO_PROCESSADA, index=False)
     print(f"lotes usados: {len(listar_lotes())}")
-    n_treino = sum(len(t) for t in treino)
-    n_avaliacao = sum(len(a) for a in avaliacao)
-    print(f"treino: {n_treino} linhas | avaliação: {n_avaliacao} linhas")
+    print(
+        f"treino: {sum(len(t) for t in treino)} linhas | "
+        f"avaliação: {sum(len(a) for a in avaliacao)} linhas"
+    )
 
 
 def validar_tudo() -> int:
-    """Valida todos os CSVs de data/raw/. Devolve o código de saída (0 = tudo certo)."""
+    """Valida todos os CSVs de data/raw/; 0 = todos válidos."""
     arquivos = [config.BASE_TREINO, config.BASE_HOLDOUT, *listar_lotes()]
     codigo = 0
     for caminho in arquivos:
+        if not caminho.is_file():
+            print(f"{caminho.name}: FALHOU: arquivo ausente")
+            codigo = 1
+            continue
         problemas = validar_dataframe(pd.read_csv(caminho))
         status = "OK" if not problemas else "FALHOU: " + "; ".join(problemas)
         print(f"{caminho.name}: {status}")
