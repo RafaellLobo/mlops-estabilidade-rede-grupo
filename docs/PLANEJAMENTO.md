@@ -149,3 +149,10 @@ Pendências de revisão, convites e integração futura não são execução con
 ## 7. Contribuição e uso de IA
 
 Rafael é o responsável pela preparação e por este planejamento. O Codex foi usado, a pedido de Rafael, para consultar o estado do GitHub, inspecionar a fonte pública, redigir o protocolo e organizar a integração. Os colegas ainda não tiveram suas contribuições de implementação registradas nesta etapa. O relatório final de Felipe deve declarar este uso de IA e os demais usos efetivamente ocorridos.
+
+## 8. Reatribuição da etapa 5 (25/11/2026)
+
+Felipe informou que assumiu a etapa 5, originalmente de Victor, além da etapa 6. O registro está em
+[ETAPA5_VICTOR.md](ETAPA5_VICTOR.md). Isso não altera a autoria das contribuições anteriores nem credita a Victor qualquer
+trabalho: até esta data não há commit, PR ou execução dele no repositório. Se Victor executar algum passo, o executor real
+deve ser registrado em `docs/EVIDENCIAS.json`.
