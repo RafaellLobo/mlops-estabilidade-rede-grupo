@@ -21,8 +21,8 @@ DESCRICAO = {
     1: "Bug no pre-processamento: remove g4. Esperado: falha nos testes de codigo.",
     2: "Dados invalidos: nulos e tempos de reacao negativos. Esperado: falha na validacao.",
     3: "Configuracao ruim do modelo. Esperado: falha nos testes de modelo.",
-    4: "Lote com maior elasticidade media. Esperado: deteccao de drift e retreino.",
-    5: "Peso excessivo para a classe instavel. Esperado: reprovacao no portao de qualidade.",
+    4: "Lote com maior elasticidade e ajuste de peso. Esperado: drift, retreino e aprovacao.",
+    5: "Treinamento insuficiente. Esperado: reprovacao no portao de qualidade.",
 }
 
 
@@ -52,11 +52,16 @@ def cenario_2() -> None:
 
 
 def cenario_3() -> None:
-    _substituir(RAIZ / "params.yaml", "C: 1.0", "C: 0.00005")
+    _substituir(RAIZ / "params.yaml", "max_iter: 300", "max_iter: 1")
 
 
 def cenario_4() -> None:
-    caminho = gerar_lote("lote_01", n=120, fator_drift=0.25, semente=1)
+    caminho = gerar_lote("lote_01", n=400, fator_drift=0.25, semente=1)
+    _substituir(
+        RAIZ / "params.yaml",
+        "class_weight: null",
+        "class_weight: {0: 1, 1: 1.5}",
+    )
     print(
         "criado:",
         Path(caminho).relative_to(RAIZ),
@@ -65,7 +70,7 @@ def cenario_4() -> None:
 
 
 def cenario_5() -> None:
-    _substituir(RAIZ / "params.yaml", "class_weight: balanced", "class_weight: {0: 50, 1: 1}")
+    _substituir(RAIZ / "params.yaml", "max_iter: 300", "max_iter: 1")
 
 
 CENARIOS = {1: cenario_1, 2: cenario_2, 3: cenario_3, 4: cenario_4, 5: cenario_5}

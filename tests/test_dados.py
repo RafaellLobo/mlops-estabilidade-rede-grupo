@@ -1,6 +1,5 @@
 """Testes de dados: esquema, integridade física e separação das partições."""
 
-import pandas as pd
 import pytest
 
 from mlops_demo import config
@@ -34,10 +33,7 @@ def test_fonte_gera_particoes_com_tamanhos_do_protocolo(particoes):
 
 
 def test_particoes_nao_tem_registros_sobrepostos(particoes):
-    chaves = [
-        set(map(tuple, parte[config.FEATURES].to_numpy()))
-        for parte in particoes
-    ]
+    chaves = [set(map(tuple, parte[config.FEATURES].to_numpy())) for parte in particoes]
     assert chaves[0].isdisjoint(chaves[1])
     assert chaves[0].isdisjoint(chaves[2])
     assert chaves[1].isdisjoint(chaves[2])
@@ -45,9 +41,7 @@ def test_particoes_nao_tem_registros_sobrepostos(particoes):
 
 def test_particoes_contem_as_duas_classes(particoes):
     for parte in particoes:
-        assert set(parte[config.ALVO].unique()) == {
-            config.CLASSE_ESTAVEL, config.CLASSE_INSTAVEL
-        }
+        assert set(parte[config.ALVO].unique()) == {config.CLASSE_ESTAVEL, config.CLASSE_INSTAVEL}
 
 
 def test_fonte_nao_expoe_colunas_de_vazamento(base_treino):

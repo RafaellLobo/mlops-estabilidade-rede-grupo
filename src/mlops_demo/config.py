@@ -19,22 +19,40 @@ AVALIACAO_PROCESSADA = DADOS_PROCESSADOS / "avaliacao.csv"
 
 # Fonte UCI — Electrical Grid Stability Simulated Data
 URL_FONTE_UCI = (
-    "https://archive.ics.uci.edu/static/public/471/"
-    "electrical+grid+stability+simulated+data.zip"
+    "https://archive.ics.uci.edu/static/public/471/electrical+grid+stability+simulated+data.zip"
 )
 SHA256_FONTE_UCI = "7afc3154fed9cd65258b3403b60381fe6b0d832bf817a1ea4866395d05a84a83"
 COLUNAS_ORIGINAIS = [
-    "tau1", "tau2", "tau3", "tau4",
-    "p1", "p2", "p3", "p4",
-    "g1", "g2", "g3", "g4",
-    "stab", "stabf",
+    "tau1",
+    "tau2",
+    "tau3",
+    "tau4",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "g1",
+    "g2",
+    "g3",
+    "g4",
+    "stab",
+    "stabf",
 ]
 
 # Esquema público do projeto: 12 atributos numéricos e alvo binário.
 FEATURES = [
-    "tau1", "tau2", "tau3", "tau4",
-    "p1", "p2", "p3", "p4",
-    "g1", "g2", "g3", "g4",
+    "tau1",
+    "tau2",
+    "tau3",
+    "tau4",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "g1",
+    "g2",
+    "g3",
+    "g4",
 ]
 ALVO = "instavel"
 CLASSE_ESTAVEL = 0
@@ -44,12 +62,18 @@ TOLERANCIA_BALANCO_POTENCIA = 1e-8
 
 # Faixas físicas do domínio simulado (UCI).
 FAIXAS_FEATURES = {
-    "tau1": (0.5, 10.0), "tau2": (0.5, 10.0),
-    "tau3": (0.5, 10.0), "tau4": (0.5, 10.0),
+    "tau1": (0.5, 10.0),
+    "tau2": (0.5, 10.0),
+    "tau3": (0.5, 10.0),
+    "tau4": (0.5, 10.0),
     "p1": (1.5, 6.0),
-    "p2": (-2.0, -0.5), "p3": (-2.0, -0.5), "p4": (-2.0, -0.5),
-    "g1": (0.05, 1.0), "g2": (0.05, 1.0),
-    "g3": (0.05, 1.0), "g4": (0.05, 1.0),
+    "p2": (-2.0, -0.5),
+    "p3": (-2.0, -0.5),
+    "p4": (-2.0, -0.5),
+    "g1": (0.05, 1.0),
+    "g2": (0.05, 1.0),
+    "g3": (0.05, 1.0),
+    "g4": (0.05, 1.0),
 }
 
 # Modelos e relatórios
