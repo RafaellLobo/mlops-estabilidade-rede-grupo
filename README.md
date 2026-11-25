@@ -1,3 +1,5 @@
+> **Para executar sua etapa com IA:** leia [PROMPT_EXECUCAO_ETAPAS.md](PROMPT_EXECUCAO_ETAPAS.md). Ele orienta escopo, identidade, dependências, PRs e evidências do Actions.
+
 > **Repositório do grupo — etapa de planejamento.** Comece por [ETAPAS_GRUPO.md](ETAPAS_GRUPO.md) e pelo [planejamento técnico de Rafael](docs/PLANEJAMENTO.md).
 > O código e o texto de referência abaixo ainda descrevem o projeto original. A adaptação elétrica e as evidências coletivas estão pendentes.
 
