@@ -14,6 +14,7 @@ stages:
       - src/mlops_demo/train.py
       - src/mlops_demo/features.py
       - src/mlops_demo/evaluate.py
+      - src/mlops_demo/config.py
       - data/processed
     params:
       - semente
