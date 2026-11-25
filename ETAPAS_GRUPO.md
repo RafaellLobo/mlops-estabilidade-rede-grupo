@@ -1,5 +1,7 @@
 # Atividade CI/CD/CT — divisão em seis etapas
 
+**Execução assistida por IA:** use [PROMPT_EXECUCAO_ETAPAS.md](PROMPT_EXECUCAO_ETAPAS.md) para acionar sua etapa, conferir os gatilhos de CI/CT/CD e registrar resultados reais.
+
 **Equipe:** Rafael, Leonardo, Samara, Juan, Victor e Felipe.  
 **Prazo do enunciado:** 25/11/2026.  
 **Repositório coletivo:** https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo  
