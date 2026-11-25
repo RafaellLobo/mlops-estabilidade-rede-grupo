@@ -1,0 +1,78 @@
+{
+  "protocolo": "split interno estratificado da base de treino; holdout não utilizado",
+  "n_treino_interno": 4800,
+  "n_validacao_interna": 1200,
+  "semente": 42,
+  "criterio": "maior recall_instavel entre candidatos com precisao_instavel >= 0.9; desempate por precisão e pela ordem declarada",
+  "candidatos": [
+    {
+      "ordem": 1,
+      "candidato": {
+        "tipo": "regressao_logistica",
+        "C": 1.0,
+        "max_iter": 1000,
+        "class_weight": "balanced"
+      },
+      "metricas": {
+        "recall_instavel": 0.7898172323759791,
+        "precisao_instavel": 0.8581560283687943,
+        "acuracia": 0.7825,
+        "n_amostras": 1200
+      }
+    },
+    {
+      "ordem": 2,
+      "candidato": {
+        "tipo": "random_forest",
+        "n_estimators": 300,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "class_weight": "balanced"
+      },
+      "metricas": {
+        "recall_instavel": 0.9647519582245431,
+        "precisao_instavel": 0.8968446601941747,
+        "acuracia": 0.9066666666666666,
+        "n_amostras": 1200
+      }
+    },
+    {
+      "ordem": 3,
+      "candidato": {
+        "tipo": "hist_gradient_boosting",
+        "max_iter": 300,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31,
+        "class_weight": null
+      },
+      "metricas": {
+        "recall_instavel": 0.9686684073107049,
+        "precisao_instavel": 0.9321608040201005,
+        "acuracia": 0.935,
+        "n_amostras": 1200
+      }
+    }
+  ],
+  "vencedor": {
+    "ordem": 3,
+    "candidato": {
+      "tipo": "hist_gradient_boosting",
+      "max_iter": 300,
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31,
+      "class_weight": null
+    },
+    "metricas": {
+      "recall_instavel": 0.9686684073107049,
+      "precisao_instavel": 0.9321608040201005,
+      "acuracia": 0.935,
+      "n_amostras": 1200
+    }
+  },
+  "cumpre_recall_minimo": true,
+  "ambiente": {
+    "python": "3.10.11",
+    "scikit_learn": "1.7.2",
+    "pandas": "2.3.3"
+  }
+}
