@@ -1,5 +1,9 @@
 # Estabilidade de rede elétrica: CI/CD/CT para ML
 
+> **Fechamento técnico:** E1–E5 e bônus comprovados; [evidências](docs/FECHAMENTO_ENTREGA.md), [contribuições](docs/CONTRIBUICOES.md) e [texto para D2L](ENTREGA_D2L.txt). Imagens públicas `1.0.0`/`1.1.0` com pull anônimo e smoke aprovados. Campeão atual promovido pelo robô na `v1.1.0`: recall 0,9668 e precisão 0,9452 em 2.200 linhas; os números do campeão inicial abaixo são históricos. Promoção automática restaurada para `false`.
+
+**Equipe da entrega:** Rafael, Leonardo, Samara, Juan e Felipe. Todos possuem commits próprios comprovados em [docs/CONTRIBUICOES.md](docs/CONTRIBUICOES.md). [Relatório em PDF de duas páginas](ADAPTACAO.pdf).
+
 Projeto de demonstração de MLOps que mostra como um modelo de machine learning é testado, retreinado e entregue de forma
 automática. Usa **GitHub Actions**, **pytest**, **ruff**, **DVC**, **FastAPI**, **Docker** e **GitHub Container Registry**.
 
@@ -66,8 +70,7 @@ Definido em `src/mlops_demo/config.py` e aplicado pelo portão (`gate.py`):
 - o candidato não pode ter recall menor que o do campeão, medido **no mesmo conjunto**;
 - gatilho de drift: teste KS com p < 0,01 em pelo menos **2 dos 12** atributos.
 
-O campeão atual é um `HistGradientBoostingClassifier`, escolhido por seleção interna 80/20 só da base de treino. No
-holdout de 2.000 linhas: recall 0,9632 e precisão 0,9505 (`models/champion/metrics.json`).
+O campeão inicial da `v1.0.0` foi um `HistGradientBoostingClassifier`, escolhido por seleção interna 80/20 só da base de treino. No holdout de 2.000 linhas: recall 0,9632 e precisão 0,9505. O campeão atual, promovido pelo CT na `v1.1.0`, tem recall 0,9668 e precisão 0,9452 na avaliação ampliada de 2.200 linhas (`models/champion/metrics.json`). Os conjuntos são diferentes; os números não constituem uma comparação direta de ganho.
 
 ## API
 
@@ -189,12 +192,12 @@ incompatível com o modo automático.
 
 ## Parte 3. Prática com cinco cenários
 
-Cada cenário muda uma coisa no projeto. **Antes de rodar, tente prever** o que vai falhar e em qual etapa.
+Para reproduzir E2–E4, parta da tag `v1.0.0`: a main já recebeu o lote e o campeão do bônus. Cada cenário muda uma coisa no projeto. **Antes de rodar, tente prever** o que vai falhar e em qual etapa.
 Troque `N` pelo número do cenário.
 
 ```bash
 git switch main && git pull
-git switch -c cenario-N
+git switch -c cenario-N v1.0.0
 python demo/cenarios.py aplicar N
 git add -A
 git commit -m "cenario N"
@@ -205,7 +208,7 @@ Abra o Pull Request e acompanhe a aba **Checks**. Ao terminar, feche o PR **sem 
 
 ```bash
 git switch main
-git branch -D cenario-N
+# Preserve a branch para rastreabilidade da evidencia.
 ```
 
 | N | O que muda | O que você deve observar |
@@ -264,7 +267,7 @@ O **CD** roda o CI, constrói a imagem, faz o teste de fumaça no container e s�
 é sempre em minúsculas:
 
 ```bash
-docker run -p 8000:8000 ghcr.io/rafaellobo/mlops-estabilidade-rede-grupo:1.0.0
+docker run -p 8000:8000 ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0
 python demo/smoke_test.py http://localhost:8000
 ```
 

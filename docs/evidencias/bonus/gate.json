@@ -1,0 +1,32 @@
+{
+  "aprovado": true,
+  "verificacoes": [
+    {
+      "regra": "recall instável do candidato >= 0.92",
+      "ok": true,
+      "valor": 0.9668
+    },
+    {
+      "regra": "precisão instável do candidato >= 0.90",
+      "ok": true,
+      "valor": 0.9452
+    },
+    {
+      "regra": "recall instável do candidato >= recall do campeão (mesmo conjunto)",
+      "ok": true,
+      "valor": "0.9668 x 0.9647"
+    }
+  ],
+  "candidato": {
+    "recall_instavel": 0.9667820069204153,
+    "precisao_instavel": 0.9451962110960758,
+    "acuracia": 0.9413636363636364,
+    "n_amostras": 2200
+  },
+  "campeao": {
+    "recall_instavel": 0.9647058823529412,
+    "precisao_instavel": 0.9502385821404227,
+    "acuracia": 0.9436363636363636,
+    "n_amostras": 2200
+  }
+}

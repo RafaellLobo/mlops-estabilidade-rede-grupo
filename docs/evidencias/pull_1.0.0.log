@@ -1,0 +1,21 @@
+1.0.0: Pulling from rafaelllobo/mlops-estabilidade-rede-grupo
+44136fa355b3: Already exists
+068fd734e807: Pulling fs layer
+f52dc9ac14d8: Pulling fs layer
+32cb15f5a10f: Pulling fs layer
+58cebf1939af: Pulling fs layer
+2ec9fd5d9227: Pulling fs layer
+136f97b905d1: Download complete
+32cb15f5a10f: Download complete
+068fd734e807: Download complete
+58cebf1939af: Download complete
+2ec9fd5d9227: Download complete
+58cebf1939af: Pull complete
+32cb15f5a10f: Pull complete
+2ec9fd5d9227: Pull complete
+f52dc9ac14d8: Download complete
+068fd734e807: Pull complete
+f52dc9ac14d8: Pull complete
+Digest: sha256:0c89b7efc2c61adadeda1914ed3db227457e671159dea106f49170788ec37bd1
+Status: Downloaded newer image for ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0
+ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0

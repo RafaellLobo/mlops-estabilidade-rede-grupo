@@ -1,5 +1,9 @@
 # Etapa 5: CI/CD e consolidação de E1 a E5
 
+**Atualização de fechamento (25/11/2026):** E1–E5 e bônus comprovados por Rafael com Codex. Consulte [FECHAMENTO_ENTREGA.md](FECHAMENTO_ENTREGA.md) e [EVIDENCIAS.json](EVIDENCIAS.json). O registro abaixo preserva o trabalho e as condições históricas da etapa; pendências técnicas antigas foram superadas pelas execuções finais. A equipe final tem Rafael, Leonardo, Samara, Juan e Felipe, todos com commits comprovados; Victor pertence somente ao planejamento histórico. As autorias estão em [CONTRIBUICOES.md](CONTRIBUICOES.md).
+
+## Registro histórico da etapa
+
 **Estado: `evidencias_pendentes`.** Nenhuma evidência E1 a E5 foi produzida no GitHub até este registro. O que existe é a
 validação local abaixo, que **não vale como evidência oficial**.
 
@@ -122,8 +126,8 @@ visibility > **Public** (se exigir o proprietário, pedir ao Rafael). Teste sem 
 
 ```bash
 docker logout ghcr.io
-docker pull ghcr.io/rafaellobo/mlops-estabilidade-rede-grupo:1.0.0
-docker run -d -p 8000:8000 ghcr.io/rafaellobo/mlops-estabilidade-rede-grupo:1.0.0
+docker pull ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0
+docker run -d -p 8000:8000 ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0
 python demo/smoke_test.py http://localhost:8000
 ```
 

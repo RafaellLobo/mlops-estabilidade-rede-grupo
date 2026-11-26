@@ -1,5 +1,7 @@
 # Atividade CI/CD/CT — divisão em seis etapas
 
+> **Estado posterior ao planejamento:** implementação e E1–E5/bônus concluídos; veja [docs/FECHAMENTO_ENTREGA.md](docs/FECHAMENTO_ENTREGA.md) e os registros reais. A equipe final confirmada tem Rafael, Leonardo, Samara, Juan e Felipe (cinco integrantes com commits); Victor não compõe a entrega. Felipe assumiu a etapa 5; Rafael executou o fechamento oficial autorizado. As atribuições e pendências descritas abaixo são históricas. Não refazer cenários já registrados nem atribuir contribuições sem evidência.
+
 **Execução assistida por IA:** use [PROMPT_EXECUCAO_ETAPAS.md](PROMPT_EXECUCAO_ETAPAS.md) para acionar sua etapa, conferir os gatilhos de CI/CT/CD e registrar resultados reais.
 
 **Equipe:** Rafael, Leonardo, Samara, Juan, Victor e Felipe.  

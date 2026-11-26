@@ -1,5 +1,7 @@
 # Etapa 1 — Rafael: planejamento e coordenação
 
+> **Estado posterior ao planejamento:** implementação e E1–E5/bônus concluídos; veja [FECHAMENTO_ENTREGA.md](FECHAMENTO_ENTREGA.md) e os registros reais. A equipe final confirmada tem Rafael, Leonardo, Samara, Juan e Felipe (cinco integrantes com commits); Victor não compõe a entrega. Felipe assumiu a etapa 5; Rafael executou o fechamento oficial autorizado. As atribuições e pendências descritas abaixo são históricas. Não refazer cenários já registrados nem atribuir contribuições sem evidência.
+
 **Responsável:** Rafael (`RafaellLobo`). **Registro:** 24/11/2026. **Prazo da atividade:** 25/11/2026.
 
 ## 1. Estado e limites desta entrega

@@ -1,7 +1,7 @@
 {
-  "aviso": "Indice de evidencias OFICIAIS do Actions. Todos os campos nulos estao pendentes. Nao preencher sem execucao real.",
   "repositorio": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo",
-  "base_conferida": {
+  "conferido_em": "25/11/2026 (America/Sao_Paulo; Actions registra UTC)",
+  "fotografia_documental_anterior": {
     "data": "2026-11-25",
     "main_sha": "330fcf8",
     "tags_no_remoto": [],
@@ -14,125 +14,254 @@
       6
     ]
   },
+  "main_com_campeao_promovido": "0c9b4c195d7cc4a32b7575bf8233b0001cfe3995",
   "evidencias": [
     {
       "id": "E1",
-      "titulo": "CI aprovado na main com a adaptacao eletrica",
-      "status": "pendente",
+      "status": "comprovada",
+      "url_run": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45707223436",
       "workflow": "CI",
-      "evento": "push em main",
-      "esperado": [
-        "Lint e formatacao (ruff)",
-        "Testes (Python 3.11)",
-        "Testes (Python 3.12)"
-      ],
-      "url_run": null,
-      "branch": null,
-      "sha": null,
-      "conclusao": null,
-      "pr_ou_tag": null,
-      "executor": null,
-      "observacoes": null
+      "evento": "push",
+      "branch": "main",
+      "sha": "65a8fb6bba22bbdfafcf99244d78277119ee55e7",
+      "conclusao": "success",
+      "executor": "felipebpkedu"
     },
     {
       "id": "E2",
-      "titulo": "PR com falha proposital identificavel no CI (cenario 1)",
-      "status": "pendente",
+      "status": "comprovada",
+      "url_run": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728001528",
       "workflow": "CI",
       "evento": "pull_request",
-      "esperado": [
-        "Lint verde",
-        "Testes de codigo vermelho (3 testes)"
-      ],
-      "url_run": null,
-      "branch": null,
-      "sha": null,
-      "conclusao": null,
-      "pr_ou_tag": null,
-      "executor": null,
-      "observacoes": null
+      "branch": "codex/evidencia-e2",
+      "sha": "882dc9bc2a3011d509ad178ce71bf103fc241e17",
+      "conclusao": "failure",
+      "executor": "RafaellLobo",
+      "pr": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pull/8",
+      "destino_pr": "fechado sem merge; branch preservada"
     },
     {
       "id": "E3",
-      "titulo": "Drift detectado, retreino executado e portao aprovado (cenario 4)",
-      "status": "pendente",
+      "status": "comprovada",
+      "url_run": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728255899",
       "workflow": "CT",
       "evento": "pull_request",
-      "esperado": [
-        "Detectar drift: gatilho disparado (4 de 12 esperados)",
-        "Reproduzir o pipeline com DVC",
-        "Portao de qualidade: aprovado",
-        "Nao pode estar skipped"
-      ],
-      "url_run": null,
-      "branch": null,
-      "sha": null,
-      "conclusao": null,
-      "pr_ou_tag": null,
-      "executor": null,
-      "observacoes": null
+      "branch": "codex/evidencia-e3",
+      "sha": "6b9056efa01a23361f37cb3da028ba689b1f6167",
+      "conclusao": "success",
+      "executor": "RafaellLobo",
+      "pr": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pull/9",
+      "destino_pr": "integrado para o bonus",
+      "portao": {
+        "aprovado": true,
+        "verificacoes": [
+          {
+            "regra": "recall instável do candidato >= 0.92",
+            "ok": true,
+            "valor": 0.9668
+          },
+          {
+            "regra": "precisão instável do candidato >= 0.90",
+            "ok": true,
+            "valor": 0.9452
+          },
+          {
+            "regra": "recall instável do candidato >= recall do campeão (mesmo conjunto)",
+            "ok": true,
+            "valor": "0.9668 x 0.9647"
+          }
+        ],
+        "candidato": {
+          "recall_instavel": 0.9667820069204153,
+          "precisao_instavel": 0.9451962110960758,
+          "acuracia": 0.9413636363636364,
+          "n_amostras": 2200
+        },
+        "campeao": {
+          "recall_instavel": 0.9647058823529412,
+          "precisao_instavel": 0.9502385821404227,
+          "acuracia": 0.9436363636363636,
+          "n_amostras": 2200
+        }
+      },
+      "relatorio_drift": "docs/evidencias/e3/drift.md"
     },
     {
       "id": "E4",
-      "titulo": "Candidato reprovado no portao; campeao inalterado (cenarios 4 e 5)",
-      "status": "pendente",
+      "status": "comprovada",
+      "url_run": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728387236",
       "workflow": "CT",
       "evento": "pull_request",
-      "esperado": [
-        "Portao de qualidade vermelho (precisao ~0,657)",
-        "hash do campeao antes e depois iguais (dde5ee49...)"
-      ],
-      "url_run": null,
-      "branch": null,
-      "sha": null,
-      "conclusao": null,
-      "pr_ou_tag": null,
-      "executor": null,
-      "observacoes": null
+      "branch": "codex/evidencia-e4",
+      "sha": "5f51f15a4482c67ab3d1fc1806e3a5479416ece5",
+      "conclusao": "failure",
+      "executor": "RafaellLobo",
+      "pr": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pull/10",
+      "destino_pr": "fechado sem merge; branch preservada",
+      "portao": {
+        "aprovado": false,
+        "verificacoes": [
+          {
+            "regra": "recall instável do candidato >= 0.92",
+            "ok": true,
+            "valor": 1.0
+          },
+          {
+            "regra": "precisão instável do candidato >= 0.90",
+            "ok": false,
+            "valor": 0.6568
+          },
+          {
+            "regra": "recall instável do candidato >= recall do campeão (mesmo conjunto)",
+            "ok": true,
+            "valor": "1.0000 x 0.9647"
+          }
+        ],
+        "candidato": {
+          "recall_instavel": 1.0,
+          "precisao_instavel": 0.6568181818181819,
+          "acuracia": 0.6568181818181819,
+          "n_amostras": 2200
+        },
+        "campeao": {
+          "recall_instavel": 0.9647058823529412,
+          "precisao_instavel": 0.9502385821404227,
+          "acuracia": 0.9436363636363636,
+          "n_amostras": 2200
+        }
+      },
+      "relatorio_drift": "docs/evidencias/e4/drift.md",
+      "campeao_antes_sha256": "dde5ee499363c5fbca7f1b5943345570e775fb2f0ef2c13bf8a17999626fd34d",
+      "campeao_depois_sha256": "dde5ee499363c5fbca7f1b5943345570e775fb2f0ef2c13bf8a17999626fd34d",
+      "objeto_git_campeao_base_e_branch": "193e4609eeb0c0122e15c9b52eab23ca6868d983"
     },
     {
       "id": "E5",
-      "titulo": "CD completo, imagem publica no GHCR, pull e smoke sem autenticacao",
-      "status": "pendente",
+      "status": "comprovada",
+      "url_run": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630",
       "workflow": "CD",
-      "evento": "push de tag v*.*.*",
-      "esperado": [
-        "CI reutilizado (3 jobs)",
-        "build",
-        "smoke no container",
-        "publicacao no ghcr.io",
-        "pull sem login e smoke da imagem publicada"
-      ],
-      "url_run": null,
-      "branch": null,
-      "sha": null,
-      "conclusao": null,
-      "pr_ou_tag": null,
-      "executor": null,
-      "observacoes": null
-    },
-    {
-      "id": "BONUS",
-      "titulo": "Promocao automatica pelo CT, tag criada e CD disparado pelo fluxo",
-      "status": "pendente",
-      "workflow": "CT e CD",
-      "evento": "push em main (CT) e workflow_dispatch (CD)",
-      "esperado": [
-        "PROMOCAO_AUTOMATICA=true registrada",
-        "commit do robo alterando models/champion",
-        "tag seguinte apontando para esse commit",
-        "CD disparado pelo CT (actor github-actions[bot])",
-        "estado final da variavel registrado"
-      ],
-      "url_run": null,
-      "branch": null,
-      "sha": null,
-      "conclusao": null,
-      "pr_ou_tag": null,
-      "executor": null,
-      "observacoes": null
+      "evento": "push",
+      "branch": "v1.0.0",
+      "sha": "65a8fb6bba22bbdfafcf99244d78277119ee55e7",
+      "conclusao": "success",
+      "executor": "RafaellLobo",
+      "tag": "v1.0.0",
+      "imagem": {
+        "versao": "1.0.0",
+        "imagem": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0",
+        "digest": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo@sha256:0c89b7efc2c61adadeda1914ed3db227457e671159dea106f49170788ec37bd1",
+        "pull_sem_login": true,
+        "docker_config": "isolado, auths vazio, sem credenciais",
+        "smoke": "aprovado",
+        "health": {
+          "status": "ok",
+          "versao_codigo": "0.1.0",
+          "metricas_do_campeao": {
+            "recall_instavel": 0.963166144200627,
+            "precisao_instavel": 0.9505027068832174,
+            "acuracia": 0.9445,
+            "n_amostras": 2000,
+            "origem": "base_treino.csv"
+          }
+        },
+        "executado_em": "2026-11-25T21:27:04.7933774-03:00",
+        "executor": "RafaellLobo com Codex"
+      }
     }
   ],
+  "bonus": {
+    "status": "comprovado",
+    "ct": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728991546",
+    "cd": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218",
+    "commit_robo": "0c9b4c195d7cc4a32b7575bf8233b0001cfe3995",
+    "autor_cd": "github-actions[bot]",
+    "evento_cd": "workflow_dispatch",
+    "tag": "v1.1.0",
+    "imagem": {
+      "versao": "1.1.0",
+      "imagem": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.1.0",
+      "digest": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo@sha256:31ece039cbac84f0d9c385f925a304f670e595d2e7d2a9e60fa5e0430ebc88c2",
+      "pull_sem_login": true,
+      "docker_config": "isolado, auths vazio, sem credenciais",
+      "smoke": "aprovado",
+      "health": {
+        "status": "ok",
+        "versao_codigo": "0.1.0",
+        "metricas_do_campeao": {
+          "recall_instavel": 0.9667820069204153,
+          "precisao_instavel": 0.9451962110960758,
+          "acuracia": 0.9413636363636364,
+          "n_amostras": 2200,
+          "origem": "treinamento contínuo (CT)"
+        }
+      },
+      "executado_em": "2026-11-25T21:33:49.2910321-03:00",
+      "executor": "RafaellLobo com Codex"
+    },
+    "variavel_final": "false",
+    "main_ja_sem_protecao": true,
+    "ativacao": {
+      "ativada_em": "2026-11-25T21:28:27.9747404-03:00",
+      "valor": "true",
+      "main_ja_sem_protecao": true,
+      "pr": 9,
+      "sha_candidato": "6b9056efa01a23361f37cb3da028ba689b1f6167",
+      "executor": "RafaellLobo com Codex"
+    },
+    "restauracao": {
+      "restaurada_em": "2026-11-25T21:29:30.2277325-03:00",
+      "valor_final": "false",
+      "executor": "RafaellLobo com Codex"
+    }
+  },
+  "pacote_ghcr": {
+    "url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pkgs/container/mlops-estabilidade-rede-grupo",
+    "visibilidade": "publica, conferida no navegador e por pulls anonimos",
+    "versoes": [
+      {
+        "versao": "1.0.0",
+        "imagem": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0",
+        "digest": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo@sha256:0c89b7efc2c61adadeda1914ed3db227457e671159dea106f49170788ec37bd1",
+        "pull_sem_login": true,
+        "docker_config": "isolado, auths vazio, sem credenciais",
+        "smoke": "aprovado",
+        "health": {
+          "status": "ok",
+          "versao_codigo": "0.1.0",
+          "metricas_do_campeao": {
+            "recall_instavel": 0.963166144200627,
+            "precisao_instavel": 0.9505027068832174,
+            "acuracia": 0.9445,
+            "n_amostras": 2000,
+            "origem": "base_treino.csv"
+          }
+        },
+        "executado_em": "2026-11-25T21:27:04.7933774-03:00",
+        "executor": "RafaellLobo com Codex"
+      },
+      {
+        "versao": "1.1.0",
+        "imagem": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.1.0",
+        "digest": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo@sha256:31ece039cbac84f0d9c385f925a304f670e595d2e7d2a9e60fa5e0430ebc88c2",
+        "pull_sem_login": true,
+        "docker_config": "isolado, auths vazio, sem credenciais",
+        "smoke": "aprovado",
+        "health": {
+          "status": "ok",
+          "versao_codigo": "0.1.0",
+          "metricas_do_campeao": {
+            "recall_instavel": 0.9667820069204153,
+            "precisao_instavel": 0.9451962110960758,
+            "acuracia": 0.9413636363636364,
+            "n_amostras": 2200,
+            "origem": "treinamento contínuo (CT)"
+          }
+        },
+        "executado_em": "2026-11-25T21:33:49.2910321-03:00",
+        "executor": "RafaellLobo com Codex"
+      }
+    ]
+  },
   "validacao_local_nao_e_evidencia_oficial": {
     "data": "2026-11-25",
     "ambiente": "Linux, Python 3.12.3, scikit-learn 1.7.2",
@@ -151,11 +280,5 @@
       "campeao_sha256_prefixo_antes_depois": "dde5ee499363c5fb / dde5ee499363c5fb"
     }
   },
-  "pacote_ghcr": {
-    "url": null,
-    "visibilidade": null,
-    "imagem": null,
-    "digest": null,
-    "teste_pull_sem_login": null
-  }
+  "executor_fechamento": "Rafael (RafaellLobo), com Codex; codigo dos cenarios de Juan e documentacao inicial de Felipe preservados"
 }

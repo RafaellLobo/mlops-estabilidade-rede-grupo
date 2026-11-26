@@ -1,5 +1,9 @@
 # Etapa 6: relatório, documentação final, bônus e entrega
 
+**Atualização de fechamento (25/11/2026):** E1–E5 e bônus comprovados por Rafael com Codex. Consulte [FECHAMENTO_ENTREGA.md](FECHAMENTO_ENTREGA.md) e [EVIDENCIAS.json](EVIDENCIAS.json). O registro abaixo preserva o trabalho e as condições históricas da etapa; pendências técnicas antigas foram superadas pelas execuções finais. A equipe final tem Rafael, Leonardo, Samara, Juan e Felipe, todos com commits comprovados; Victor pertence somente ao planejamento histórico. As autorias estão em [CONTRIBUICOES.md](CONTRIBUICOES.md).
+
+## Registro histórico da etapa
+
 **Estado: `validada_localmente`** para a documentação; o PR ainda não foi aberto e as evidências estão `evidencias_pendentes`.
 A entrega **não está pronta**: faltam E1 a E5 e o pacote público (ver `docs/ETAPA5_VICTOR.md`).
 
