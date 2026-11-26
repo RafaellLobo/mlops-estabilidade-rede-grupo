@@ -15,9 +15,7 @@ simulados, sem operação de rede real.
 Adaptado do projeto de demonstração da disciplina, que classificava tumores de mama (Breast Cancer, scikit-learn) e serviu
 de modelo para a estrutura de CI/CD/CT.
 
-> Relatório de adaptação (até duas páginas): [ADAPTACAO.md](ADAPTACAO.md). Plano de trabalho do grupo:
-> [ETAPAS_GRUPO.md](ETAPAS_GRUPO.md). Registros das etapas e das evidências: [docs/](docs/), com o índice em
-> [docs/EVIDENCIAS.json](docs/EVIDENCIAS.json) e o roteiro de execução em [docs/ETAPA5_VICTOR.md](docs/ETAPA5_VICTOR.md).
+> Relatório de adaptação (até duas páginas): [ADAPTACAO.md](ADAPTACAO.md). Metodologia: [docs/PROTOCOLO.md](docs/PROTOCOLO.md). Evidências oficiais: [docs/EVIDENCIAS.json](docs/EVIDENCIAS.json). Autoria e uso de IA: [docs/CONTRIBUICOES.md](docs/CONTRIBUICOES.md).
 
 ## Dados
 
@@ -58,7 +56,7 @@ params.yaml            hiperparâmetros e candidatos da seleção interna
 dvc.yaml               pipeline: preparar e treinar
 Dockerfile             imagem da API com o modelo campeão
 demo/                  cenários de prática, gerador de lotes, teste de fumaça e execução local
-docs/                  planejamento, integração, registros das etapas e índice de evidências
+docs/                  protocolo, integração, registros técnicos e índice de evidências
 ```
 
 ## Contrato de qualidade

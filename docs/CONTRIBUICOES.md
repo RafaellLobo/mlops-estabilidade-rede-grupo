@@ -9,4 +9,4 @@ Conferência de Rafael com Codex em 25/11/2026. As cinco contas abaixo constam n
 - **Felipe / felipebpkedu (Claude):** bases regeneradas, README, relatório e registros das etapas 5/6; `e3dfe49`, `77e9321`, PR #7. O CI E1 foi disparado pela integração dele.
 A equipe final da entrega, confirmada por Rafael, tem somente os cinco integrantes acima. Victor constava do planejamento inicial e não integra a entrega final. Felipe assumiu a etapa 5; as execuções oficiais finais foram realizadas por Rafael. Todos os cinco integrantes finais têm commits próprios comprovados.
 
-Os registros anteriores de planejamento, Samara, Juan e Felipe descrevem as condições da época. Consulte [EVIDENCIAS.json](EVIDENCIAS.json) para o estado final. A salvaguarda individual não foi modificada nem apresentada como evidência coletiva.
+O protocolo técnico e os registros de implementação descrevem as decisões e condições da época; os commits e PRs preservam também a autoria dos materiais de organização interna retirados da versão final. Consulte [EVIDENCIAS.json](EVIDENCIAS.json) para o estado final. A salvaguarda individual não foi modificada nem apresentada como evidência coletiva.
