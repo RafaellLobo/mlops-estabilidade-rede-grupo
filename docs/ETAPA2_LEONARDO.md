@@ -4,7 +4,7 @@
 
 Leonardo (`le0zinn1316`, autor Git `LeonardoSecco`) publicou nove commits, de `c97b822` a `0b9f972`, no PR #4: fonte UCI com proveniência, FEATURES/ALVO, ingestão, partições, validações físicas e testes. O PR original teve falhas de integração; seus commits foram preservados pelo PR #6, que também incorporou as correções seguintes e os CSVs regenerados por Felipe em `e3dfe49`.
 
-A fonte contém 10.000 registros, 12 entradas e classes derivadas de stabf; stab/stabf ficam fora das entradas. As divisões fixas são 6.000 treino, 2.000 holdout e 2.000 reserva, estratificadas com semente 7. Validações cobrem esquema, tipos, nulos, infinitos, faixas e balanço de potência. O SHA-256 da fonte está no planejamento e no relatório de integridade final.
+A fonte contém 10.000 registros, 12 entradas e classes derivadas de stabf; stab/stabf ficam fora das entradas. As divisões fixas são 6.000 treino, 2.000 holdout e 2.000 reserva, estratificadas com semente 7. Validações cobrem esquema, tipos, nulos, infinitos, faixas e balanço de potência. O SHA-256 da fonte está no [protocolo técnico](PROTOCOLO.md) e no relatório de integridade final.
 
 Rafael executou no conjunto integrado o validador e 13 testes de dados aprovados, além das demais camadas (43 testes no total). O CI oficial E1 e os CIs de E3/CD também validaram essas camadas em Python 3.11 e 3.12. A fonte e os CSVs originais permanecem idênticos aos da v1.0.0; a verificação de bytes está em `docs/evidencias/integridade_final.json`.
 

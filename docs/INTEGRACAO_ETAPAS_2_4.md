@@ -6,7 +6,7 @@ Rafael realizou a integração e as verificações abaixo com auxílio do Codex.
 
 O PR #4 de Leonardo isoladamente continha falhas de lint e dados ainda incompatíveis com a adaptação. A branch `integracao-etapas-2-4` já continha seus commits e as correções das etapas seguintes, incluindo os CSVs elétricos. A integração usa esse conjunto, sem ignorar checks vermelhos ou fabricar um resultado para o PR antigo.
 
-O guia das seis etapas foi publicado pelo [PR #5](https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pull/5), com CI aprovado. Consulte [PROMPT_EXECUCAO_ETAPAS.md](../PROMPT_EXECUCAO_ETAPAS.md) antes de continuar sua etapa.
+A preparação documental foi publicada pelo [PR #5](https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pull/5), com CI aprovado. O protocolo metodológico preservado está em [PROTOCOLO.md](PROTOCOLO.md); os resultados finais estão em [EVIDENCIAS.json](EVIDENCIAS.json).
 
 Commits verificados como ancestrais da integração:
 
