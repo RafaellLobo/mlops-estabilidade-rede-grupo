@@ -1,0 +1,2 @@
+health ok | versão: 0.1.0
+predict ok | {'classe': 'estavel', 'probabilidade_instavel': 0.0, 'versao_codigo': '0.1.0'}

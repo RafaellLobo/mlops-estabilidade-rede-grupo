@@ -1,26 +1,33 @@
-RASCUNHO INCOMPLETO. NAO ENVIAR ANTES DE PREENCHER TUDO COM URLS REAIS.
-Este arquivo nao envia a atividade ao D2L. Quem envia e uma unica pessoa definida pelo grupo.
+ATIVIDADE CI/CD/CT - ESTABILIDADE DE REDE ELETRICA
+Material tecnico concluido. Um unico integrante deve fazer o envio no D2L.
 
-Repositorio do grupo (publico):
+Repositorio publico:
 https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo
 
-Relatorio: ADAPTACAO.md na raiz do repositorio (maximo de duas paginas).
+Relatorio (ate duas paginas):
+https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/blob/main/ADAPTACAO.md
 
-Evidencias (execucoes no repositorio do grupo):
-E1 (CI na main adaptada):            FALTA
-E2 (CI vermelho controlado em PR):   FALTA
-E3 (drift e portao aprovado, CT):    FALTA
-E4 (portao reprovado, CT):           FALTA
-E5 (tag, CD verde, imagem publica):  FALTA
+Cinco execucoes oficiais:
+E1: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45707223436
+E2: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728001528
+E3: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728255899
+E4: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728387236
+E5: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630
 
-Pacote publico no GHCR (pagina e print):  FALTA
+E2 e E4 falham de forma intencional, conforme o enunciado; PRs fechados sem merge.
 
-Bonus (opcional): FALTA / nao realizado
+Pagina do pacote publico:
+https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/pkgs/container/mlops-estabilidade-rede-grupo
+Imagem: ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.0.0
+Versao promovida automaticamente: ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.1.0
+Ambas testadas com pull sem login e smoke aprovado.
 
-Pendencias que impedem o envio:
-- as cinco evidencias acima ainda nao foram executadas no Actions;
-- o pacote ainda nao foi publicado nem tornado publico;
-- contribuicao de Victor sem registro;
-- revisao de Rafael ao PR documental.
+Desafio adicional:
+CT: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728991546
+CD disparado pelo robo: https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218
+Variavel PROMOCAO_AUTOMATICA restaurada para false.
 
-Enviado por: (a definir pelo grupo)
+Contribuicoes dos cinco executores comprovadas no historico e em docs/CONTRIBUICOES.md.
+Equipe final confirmada: Rafael, Leonardo, Samara, Juan e Felipe. Todos os cinco possuem commits proprios comprovados.
+Confirmar com a disciplina a exclusividade do dataset entre grupos.
+Este arquivo prepara o envio; nao realiza a submissao ao portal.

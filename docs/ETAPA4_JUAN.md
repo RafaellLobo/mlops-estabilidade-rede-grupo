@@ -1,5 +1,9 @@
 # Etapa 4 — Juan: drift, API e cenários
 
+**Atualização de fechamento (25/11/2026):** E1–E5 e bônus comprovados por Rafael com Codex. Consulte [FECHAMENTO_ENTREGA.md](FECHAMENTO_ENTREGA.md) e [EVIDENCIAS.json](EVIDENCIAS.json). O registro abaixo preserva o trabalho e as condições históricas da etapa; pendências técnicas antigas foram superadas pelas execuções finais. A equipe final tem Rafael, Leonardo, Samara, Juan e Felipe, todos com commits comprovados; Victor pertence somente ao planejamento histórico. As autorias estão em [CONTRIBUICOES.md](CONTRIBUICOES.md).
+
+## Registro histórico da etapa
+
 ## Alterações realizadas
 
 - Adaptação da API para o domínio de estabilidade da rede elétrica, utilizando os 12 atributos do dataset.

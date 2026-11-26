@@ -1,0 +1,21 @@
+{
+  "versao": "1.1.0",
+  "imagem": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo:1.1.0",
+  "digest": "ghcr.io/rafaelllobo/mlops-estabilidade-rede-grupo@sha256:31ece039cbac84f0d9c385f925a304f670e595d2e7d2a9e60fa5e0430ebc88c2",
+  "pull_sem_login": true,
+  "docker_config": "isolado, auths vazio, sem credenciais",
+  "smoke": "aprovado",
+  "health": {
+    "status": "ok",
+    "versao_codigo": "0.1.0",
+    "metricas_do_campeao": {
+      "recall_instavel": 0.9667820069204153,
+      "precisao_instavel": 0.9451962110960758,
+      "acuracia": 0.9413636363636364,
+      "n_amostras": 2200,
+      "origem": "treinamento contínuo (CT)"
+    }
+  },
+  "executado_em": "2026-11-25T21:33:49.2910321-03:00",
+  "executor": "RafaellLobo com Codex"
+}

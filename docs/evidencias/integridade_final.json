@@ -1,0 +1,20 @@
+{
+  "data/source/Data_for_UCI_named.csv": {
+    "sha256": "7afc3154fed9cd65258b3403b60381fe6b0d832bf817a1ea4866395d05a84a83",
+    "igual_v1_0_0": true
+  },
+  "data/raw/base_treino.csv": {
+    "sha256": "2de25aab6f56d85156b5532f38f8f13218acf04ddf25afee1b91f5b5c2dab1d4",
+    "igual_v1_0_0": true
+  },
+  "data/raw/base_holdout.csv": {
+    "sha256": "aea4479c8ca988442217d3d7c6570cabaad13a24b53d3fd57583948a30713034",
+    "igual_v1_0_0": true
+  },
+  "campeao": {
+    "antes_sha256": "dde5ee499363c5fbca7f1b5943345570e775fb2f0ef2c13bf8a17999626fd34d",
+    "depois_sha256": "15799e01e275e2443d5a70095c1c343ad0a95204fd249381f74f95e1f7aa237c",
+    "promovido_pelo_ct": "0c9b4c195d7cc4a32b7575bf8233b0001cfe3995",
+    "historico_preservado_em": "v1.0.0"
+  }
+}

@@ -1,5 +1,7 @@
 # Prompt operacional — execução e fechamento das seis etapas
 
+> **Estado posterior ao planejamento:** implementação e E1–E5/bônus concluídos; veja [docs/FECHAMENTO_ENTREGA.md](docs/FECHAMENTO_ENTREGA.md) e os registros reais. A equipe final confirmada tem Rafael, Leonardo, Samara, Juan e Felipe (cinco integrantes com commits); Victor não compõe a entrega. Felipe assumiu a etapa 5; Rafael executou o fechamento oficial autorizado. As atribuições e pendências descritas abaixo são históricas. Não refazer cenários já registrados nem atribuir contribuições sem evidência.
+
 ## 1. Como o integrante deve acionar a IA
 
 Abra o clone **atualizado** de `RafaellLobo/mlops-estabilidade-rede-grupo` na ferramenta de IA. Este arquivo é o roteiro de trabalho; ele não executa comandos sozinho nem concede acesso ao GitHub. A IA precisa de ferramentas, autenticação e permissões. Instruções de sessão, regras de segurança e autorizações do usuário continuam valendo.
@@ -22,8 +24,8 @@ Com as instruções do projeto carregadas e a identidade inequívoca, uma frase 
 | 2 | Leonardo | `le0zinn1316` | `docs/ETAPA2_LEONARDO.md` |
 | 3 | Samara | `Samysruiz` | `docs/ETAPA3_SAMARA.md` |
 | 4 | Juan | `juanguatierri-wq` | `docs/ETAPA4_JUAN.md` |
-| 5 | Victor | `VictorHugo-syss` | `docs/ETAPA5_VICTOR.md` |
-| 6 | Felipe | `fclivati` foi a conta informada; `felipebpkedu` aparece em commits | `docs/ETAPA6_FELIPE.md` |
+| 5 | Felipe (reatribuída; nome histórico do arquivo preservado) | `felipebpkedu` | `docs/ETAPA5_VICTOR.md` |
+| 6 | Felipe | `felipebpkedu` (vínculo com o commit documental confirmado pela API) | `docs/ETAPA6_FELIPE.md` |
 
 Felipe deve confirmar sua conta atual; não presumir que duas contas pertencem à mesma pessoa. Comparar pessoa declarada, conta autenticada e autoria Git antes de escrever commits. Se houver divergência sem explicação/autorização, pedir a identificação correta. Nunca fabricar autoria, configurar outra pessoa para gerar commits ou atribuir ao colega testes executados por você.
 

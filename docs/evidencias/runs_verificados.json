@@ -1,0 +1,1142 @@
+{
+  "E1": {
+    "id": 45707223436,
+    "name": "CI",
+    "head_branch": "main",
+    "head_sha": "65a8fb6bba22bbdfafcf99244d78277119ee55e7",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45707223436",
+    "created_at": "2026-11-25T21:45:18Z",
+    "updated_at": "2026-11-25T21:46:07Z",
+    "actor": "felipebpkedu",
+    "jobs": [
+      {
+        "name": "Lint e formatação (ruff)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45707223436/job/139532174110",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar ruff",
+            "conclusion": "success"
+          },
+          {
+            "name": "Lint",
+            "conclusion": "success"
+          },
+          {
+            "name": "Formatação",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Testes (Python 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45707223436/job/139532174922",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Testes (Python 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45707223436/job/139532175099",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "E2": {
+    "id": 45728001528,
+    "name": "CI",
+    "head_branch": "codex/evidencia-e2",
+    "head_sha": "882dc9bc2a3011d509ad178ce71bf103fc241e17",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728001528",
+    "created_at": "2026-11-26T00:20:13Z",
+    "updated_at": "2026-11-26T00:20:45Z",
+    "actor": "RafaellLobo",
+    "jobs": [
+      {
+        "name": "Testes (Python 3.12)",
+        "conclusion": "failure",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728001528/job/139602640479",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Testes (Python 3.11)",
+        "conclusion": "failure",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728001528/job/139602641011",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Lint e formatação (ruff)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728001528/job/139602641064",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar ruff",
+            "conclusion": "success"
+          },
+          {
+            "name": "Lint",
+            "conclusion": "success"
+          },
+          {
+            "name": "Formatação",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "E3": {
+    "id": 45728255899,
+    "name": "CT",
+    "head_branch": "codex/evidencia-e3",
+    "head_sha": "6b9056efa01a23361f37cb3da028ba689b1f6167",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728255899",
+    "created_at": "2026-11-26T00:22:21Z",
+    "updated_at": "2026-11-26T00:23:09Z",
+    "actor": "RafaellLobo",
+    "jobs": [
+      {
+        "name": "Retreinar e avaliar",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728255899/job/139603499000",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto com DVC",
+            "conclusion": "success"
+          },
+          {
+            "name": "Detectar drift (gatilho por evento)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar o relatório de drift",
+            "conclusion": "success"
+          },
+          {
+            "name": "Decidir se o pipeline deve rodar",
+            "conclusion": "success"
+          },
+          {
+            "name": "Reproduzir o pipeline com DVC (preparar e treinar)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Portão de qualidade (candidato x campeão)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar o resultado do portão",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar o candidato e os relatórios",
+            "conclusion": "success"
+          },
+          {
+            "name": "Promover o candidato (copia para models/champion)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Abrir Pull Request com o novo campeão",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Publicar o novo campeão na main (promoção automática)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Criar a tag da nova versão e disparar o CD",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Avisar se o PR não pôde ser aberto",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "E4": {
+    "id": 45728387236,
+    "name": "CT",
+    "head_branch": "codex/evidencia-e4",
+    "head_sha": "5f51f15a4482c67ab3d1fc1806e3a5479416ece5",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728387236",
+    "created_at": "2026-11-26T00:23:28Z",
+    "updated_at": "2026-11-26T00:24:06Z",
+    "actor": "RafaellLobo",
+    "jobs": [
+      {
+        "name": "Retreinar e avaliar",
+        "conclusion": "failure",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728387236/job/139603942451",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto com DVC",
+            "conclusion": "success"
+          },
+          {
+            "name": "Detectar drift (gatilho por evento)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar o relatório de drift",
+            "conclusion": "success"
+          },
+          {
+            "name": "Decidir se o pipeline deve rodar",
+            "conclusion": "success"
+          },
+          {
+            "name": "Reproduzir o pipeline com DVC (preparar e treinar)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Portão de qualidade (candidato x campeão)",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Publicar o resultado do portão",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar o candidato e os relatórios",
+            "conclusion": "success"
+          },
+          {
+            "name": "Promover o candidato (copia para models/champion)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Abrir Pull Request com o novo campeão",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Publicar o novo campeão na main (promoção automática)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Criar a tag da nova versão e disparar o CD",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Avisar se o PR não pôde ser aberto",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "E5": {
+    "id": 45728416630,
+    "name": "CD",
+    "head_branch": "v1.0.0",
+    "head_sha": "65a8fb6bba22bbdfafcf99244d78277119ee55e7",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630",
+    "created_at": "2026-11-26T00:23:43Z",
+    "updated_at": "2026-11-26T00:25:54Z",
+    "actor": "RafaellLobo",
+    "jobs": [
+      {
+        "name": "Rodar o CI antes de publicar / Lint e formatação (ruff)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630/job/139604045655",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar ruff",
+            "conclusion": "success"
+          },
+          {
+            "name": "Lint",
+            "conclusion": "success"
+          },
+          {
+            "name": "Formatação",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Rodar o CI antes de publicar / Testes (Python 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630/job/139604045867",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Rodar o CI antes de publicar / Testes (Python 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630/job/139604045886",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Construir, testar e publicar a imagem",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728416630/job/139604335920",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Conferir que o modelo campeão está no repositório",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run docker/setup-buildx-action@v3",
+            "conclusion": "success"
+          },
+          {
+            "name": "Metadados da imagem (nome e tags)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Construir a imagem (somente local, para o teste)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Teste de fumaça do container",
+            "conclusion": "success"
+          },
+          {
+            "name": "Logs do container (se algo falhou)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Login no GitHub Container Registry",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar a imagem",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Publicar a imagem",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Login no GitHub Container Registry",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Construir a imagem (somente local, para o teste)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run docker/setup-buildx-action@v3",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "BONUS_CT": {
+    "id": 45728991546,
+    "name": "CT",
+    "head_branch": "main",
+    "head_sha": "558ffab3c2792b2d3953356a1c6ca9e0b1412e24",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728991546",
+    "created_at": "2026-11-26T00:28:34Z",
+    "updated_at": "2026-11-26T00:29:23Z",
+    "actor": "RafaellLobo",
+    "jobs": [
+      {
+        "name": "Retreinar e avaliar",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45728991546/job/139605990724",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto com DVC",
+            "conclusion": "success"
+          },
+          {
+            "name": "Detectar drift (gatilho por evento)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar o relatório de drift",
+            "conclusion": "success"
+          },
+          {
+            "name": "Decidir se o pipeline deve rodar",
+            "conclusion": "success"
+          },
+          {
+            "name": "Reproduzir o pipeline com DVC (preparar e treinar)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Portão de qualidade (candidato x campeão)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar o resultado do portão",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar o candidato e os relatórios",
+            "conclusion": "success"
+          },
+          {
+            "name": "Promover o candidato (copia para models/champion)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Abrir Pull Request com o novo campeão",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Publicar o novo campeão na main (promoção automática)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Criar a tag da nova versão e disparar o CD",
+            "conclusion": "success"
+          },
+          {
+            "name": "Avisar se o PR não pôde ser aberto",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "BONUS_CD": {
+    "id": 45729083218,
+    "name": "CD",
+    "head_branch": "v1.1.0",
+    "head_sha": "0c9b4c195d7cc4a32b7575bf8233b0001cfe3995",
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218",
+    "created_at": "2026-11-26T00:29:19Z",
+    "updated_at": "2026-11-26T00:31:49Z",
+    "actor": "github-actions[bot]",
+    "jobs": [
+      {
+        "name": "Rodar o CI antes de publicar / Testes (Python 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218/job/139606304061",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Rodar o CI antes de publicar / Lint e formatação (ruff)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218/job/139606304550",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar ruff",
+            "conclusion": "success"
+          },
+          {
+            "name": "Lint",
+            "conclusion": "success"
+          },
+          {
+            "name": "Formatação",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Rodar o CI antes de publicar / Testes (Python 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218/job/139606304599",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Instalar o projeto e as ferramentas de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Validar os dados brutos",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de código",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de dados",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de modelo (treina com o código e o params.yaml deste commit)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Testes de contrato da API",
+            "conclusion": "success"
+          },
+          {
+            "name": "Guardar relatórios de teste",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "Construir, testar e publicar a imagem",
+        "conclusion": "success",
+        "html_url": "https://github.com/RafaellLobo/mlops-estabilidade-rede-grupo/actions/runs/45729083218/job/139606598103",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Conferir que o modelo campeão está no repositório",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run docker/setup-buildx-action@v3",
+            "conclusion": "success"
+          },
+          {
+            "name": "Metadados da imagem (nome e tags)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Construir a imagem (somente local, para o teste)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Teste de fumaça do container",
+            "conclusion": "success"
+          },
+          {
+            "name": "Logs do container (se algo falhou)",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Login no GitHub Container Registry",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publicar a imagem",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Publicar a imagem",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Login no GitHub Container Registry",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Construir a imagem (somente local, para o teste)",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run docker/setup-buildx-action@v3",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,5 +1,9 @@
 # Etapa 3 — Samara: modelo, métricas, portão e campeão
 
+**Atualização de fechamento (25/11/2026):** E1–E5 e bônus comprovados por Rafael com Codex. Consulte [FECHAMENTO_ENTREGA.md](FECHAMENTO_ENTREGA.md) e [EVIDENCIAS.json](EVIDENCIAS.json). O registro abaixo preserva o trabalho e as condições históricas da etapa; pendências técnicas antigas foram superadas pelas execuções finais. A equipe final tem Rafael, Leonardo, Samara, Juan e Felipe, todos com commits comprovados; Victor pertence somente ao planejamento histórico. As autorias estão em [CONTRIBUICOES.md](CONTRIBUICOES.md).
+
+## Registro histórico da etapa
+
 **Responsável:** Samara (`Samysruiz`). **Revisor proposto:** Juan. **Base:** branch `leonardo/etapa-2-dados` (commit `8651435`).
 
 ## O que mudou
