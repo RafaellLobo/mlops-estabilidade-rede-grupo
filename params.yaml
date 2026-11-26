@@ -8,7 +8,7 @@ modelo:
   max_iter: 300
   learning_rate: 0.1
   max_leaf_nodes: 31
-  class_weight: null
+  class_weight: {0: 1, 1: 1.5}
 
 # Seleção interna (protocolo da Etapa 1): split estratificado 80/20 SOMENTE da base de treino,
 # random_state = 42. Candidatos e ordem de desempate foram declarados ANTES da execução.
